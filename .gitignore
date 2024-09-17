@@ -1,0 +1,3 @@
+# Eleventy and Node stuff #
+/node_modules
+.idea/
