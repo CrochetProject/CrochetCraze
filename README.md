@@ -27,5 +27,5 @@ Some languages I will be enhancing through this project are:
 -	Togglable Switch Buttons
 -	Calculator
 - 
-     This is my plan for my Senior Project as of now, but I may scrap, add or revise some of these features as the semester progresses, but hopefully I can get to all of it, if not I’ll finish it later on my own time! 
+This is my plan for my Senior Project as of now, but I may scrap, add or revise some of these features as the semester progresses, but hopefully I can get to all of it, if not I’ll finish it later on my own time! 
 
