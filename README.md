@@ -16,7 +16,7 @@ Some languages I will be enhancing through this project are:
 -	Eleventy (11ty)
 -	SVG and SVG animation
 
-     Using a combination of all languages, I am planning on using this site to build multiple pages with many forms of content types. Such as:
+Using a combination of all languages, I am planning on using this site to build multiple pages with many forms of content types. Such as:
 
 -	Text
 -	Images
