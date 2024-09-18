@@ -5,4 +5,4 @@ layout: base.njk
 # Crochet Craze!
 ## Welcome to the site!
 
-Guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh guh
+lalalalalallalalal lalalalalallalalalallalaalallalalalalalal alalallalalalalalalalallaa llalalalalalalalalalallalalalalalalal lalalallalalalalalalalala lalallalalalalalalalalala lalallalal alalalalall alalal alallalalalalala lalalalalalal alalaallalalalalalal lalalal alalallalal llalalalalala lala
