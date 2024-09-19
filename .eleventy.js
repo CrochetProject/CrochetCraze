@@ -1,5 +1,6 @@
 module.exports = function (eleventyConfig) {
     // Copy `_src/img/` to `_site/img`
+    eleventyConfig.addPassthroughCopy("_src/includes/");
     eleventyConfig.addPassthroughCopy("./_src/css/");
     eleventyConfig.addWatchTarget("./_src/css/")
 
