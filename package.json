@@ -4,8 +4,8 @@
   "description": "Main Crochet Project Website",
   "main": "index.js",
   "scripts": {
-    "dev": "npx @11ty/eleventy --serve",
-    "build": "npx @11ty/eleventy",
+    "start": "eleventy --serve",
+    "build": "eleventy",
     "deploy": "gh-pages -d _site",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

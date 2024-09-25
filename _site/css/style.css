@@ -11,19 +11,146 @@ html {
 }
 body {
     margin: 0;
-    height: 100vh;
+    height: fit-content;
     z-index: 1;
     overflow-x: hidden;
 }
 h1 {
+    /*<weight>: Use a value from 400 to 900*/
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+    font-style: italic;
     font-size: 3rem;
+    margin: 0;
 }
 h2 {
+    font-family: "Playfair Display", serif;
+    font-weight: 700;
+    font-style: italic;
     font-size: 2rem;
+    margin: 1rem 0;
+    text-align: center;
 }
 h3 {
     font-size: 1rem;
+    margin: 0;
+}
+p, li {
+    font-family: "Karla", sans-serif;
+    font-optical-sizing: auto;
+/*<weight>: Use a value from 200 to 800*/
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1rem;
+    margin: 0;
+    line-height: 1.5;
 }
 p {
-    font-size: 1rem;
+    margin: 0 0 1rem 0;
+
+}
+#nav{
+    /*position: fixed;*/
+    font-family: "Playfair Display", serif;
+    text-decoration: none;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+    justify-content: end;
+}
+#nav a{
+    padding: 1rem;
+    text-decoration: none;
+}
+#nav a:nth-child(1) {
+    position: absolute;
+    left: 0;
+}
+#yarnBG {
+    position: absolute;
+    width: 105%;
+    height: 50vw;
+    z-index: -100;
+}
+#yarnBGSz{
+    width: 100%;
+}
+header{
+    height: 50vw;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    width: 60vw;
+    max-width: 870px;
+    margin: 0 auto;
+}
+#mainH1{
+    /*width: 25%;*/
+    position: absolute;
+    top: 23.5vw;
+    font-size: 5rem;
+    text-align: center;
+    line-height: 4.5rem;
+    align-self: center;
+    justify-self: center;
+    margin: 0;
+}
+footer {
+    padding: 1rem 2rem;
+    background-color: #E9E9E9;
+}
+#footCont div {
+    width: 50%;
+}
+
+@media screen and (min-width: 1360px) {
+    /*#yarnBG {*/
+    /*    height: 40vw;*/
+    /*}*/
+    /*#yarnBG image{*/
+    /*    y:-15%;*/
+    /*}*/
+}
+@media screen and (max-width: 880px) {
+    #mainH1{
+        font-size: 4rem;
+    }
+
+}
+@media screen and (max-width: 700px) {
+    #mainH1{
+        top: 26vw;
+        font-size: 3rem;
+        line-height: 3rem;
+    }
+    h2 {
+        font-size: 1.5rem;
+    }
+}
+@media screen and (max-width: 530px) {
+    #mainH1{
+        top: 32vw;
+        font-size: 2rem;
+        line-height: 1.7rem;
+    }
+    h2 {
+        font-size: 1.3rem;
+    }
+    p {
+        font-size: .9rem;
+    }
+}
+@media screen and (max-width: 420px) {
+    #mainH1{
+        top: 36vw;
+        font-size: 2rem;
+        line-height: 1.7rem;
+    }
 }

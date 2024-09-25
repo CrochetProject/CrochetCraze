@@ -1,0 +1,19 @@
+---
+layout: base.njk
+---
+
+<header>
+    <svg id="yarnBG">
+        <defs>
+            <clipPath id="cut-bottom">
+                <rect x="0" y="0" width="100%" height="100%" />
+            </clipPath>
+        </defs>
+        <image id="yarnBGSz" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../imgs/yarnBG-3360x2240-min.jpg" clip-path="url(#cut-bottom)" y="-15%"></image>
+    </svg>
+    <h1 id="mainH1">Crochet </br>Craze</h1>
+</header>
+
+<main id="home">
+    {{ content | safe }}
+</main>
