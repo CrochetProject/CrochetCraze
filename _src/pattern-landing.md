@@ -1,6 +1,6 @@
 ---
 title: Pattern Landing Page
-layout: base.njk
+layout: other.njk
 ---
 
 # Patterns

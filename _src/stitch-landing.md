@@ -1,6 +1,6 @@
 ---
 title: Stitches Landing Page
-layout: base.njk
+layout: other.njk
 ---
 
 # Stitches
