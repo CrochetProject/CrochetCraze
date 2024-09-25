@@ -6,6 +6,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("./_src/stitches/");
     eleventyConfig.addPassthroughCopy("./_src/imgs/");
     eleventyConfig.addPassthroughCopy("./_src/JS/");
+
     eleventyConfig.addWatchTarget("./_src/css/")
 
     return {
