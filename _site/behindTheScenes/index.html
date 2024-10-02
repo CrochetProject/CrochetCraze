@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Behind the Scenes</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    </head>
+    <body>
+
+
+        
+<div id="nav">
+    <a href="../index.html">Home</a>
+    <a href="../stitch-landing/index.html">Stitches</a>
+    <a href="../pattern-landing/index.html">Patterns</a>
+</div>
+
+<main id="home">
+    <h1>Behind the Scenes</h1>
+<h2>Using 11ty</h2>
+<p>11ty is a static site generator using custom templating to depict how your site should be laid out. Essentially, after the initial set up, you create a template (or web of templates) to layout a website with multiple pages.</p>
+<p>11ty is able to configure 10 templating languages to your desired site layout (even a combination of languages). For this site I decided to use HTML, Markdown, and Nunjucks. I may also use WebC depending on how the progression of the project goes.</p>
+<p>Another huge part of 11ty is its ability to have Collections, i.e. a “collection” of blog posts or a “collection” of recipe pages. For this site I will be using collections to organize and layout my Stitches and Patterns pages.</p>
+<h3>Requirements</h3>
+<ul>
+<li>A fresh working github repository that you can easily push content to.</li>
+<li>Basic knowledge in node.js</li>
+<li>For more information on the 11ty setup visit 11ty.dev</li>
+<li>For a video tutorial of these instructions visit this video (*・‿・)ノ <a href="https://www.youtube.com/watch?v=p81J7G1qFAM&amp;list=PLRsQ6aSNe0GDFHNteM1VUSQrTJvIKoMas&amp;index=2">11ty.rocks tutorial</a></li>
+</ul>
+<h3>Step #1: Configuration</h3>
+<p>Inside you new repo, use whatever terminal and use <code>npm init -y</code> to initialize the project.</p>
+<ul>
+<li>A <code>package.json</code> will appear in your repo directory</li>
+</ul>
+<p>Next <code>npm install @11ty/eleventy</code> to install 11ty</p>
+<ul>
+<li>A <code>package-lock.json</code> and a folder called <code>node_modules</code> will appear</li>
+</ul>
+<p>While using whatever web development software you’re most comfortable with, open <code>package.json</code> and add the following commands into the “script”:</p>
+<ul>
+<li>“start”: “eleventy --serve”,</li>
+<li>“build”: “eleventy”
+<ul>
+<li>These commands will be used often in the terminal to develop and build your site.</li>
+</ul>
+</li>
+</ul>
+<p>Next let’s create a <code>.gitignore</code> file and insert these lines of code:</p>
+<pre><code class="language-ignorelang">     /node_modules
+     .idea/
+</code></pre>
+<p>Back within your project repo, create a new file and name it <code>.eleventy.js</code> and insert the following code</p>
+<pre><code class="language-js">      module.exports = function (eleventyConfig){
+      return{
+      dir: {
+      input: “_src”,
+      output: “_site”
+      },
+      };
+      };
+</code></pre>
+<h3>Step #2: Base Layout, CSS, and 11ty Commands</h3>
+<p>Next create a folder directory called <code>_src</code>, and within the folder _src, create the file <code>index.md</code></p>
+<ul>
+<li>Using Markdown, add some content to index.md</li>
+</ul>
+<p>Next, create a folder called <code>_includes</code> with a file within it called <code>base.njk</code> (the name of the Nunjucks file can be anything, but base is standard)</p>
+<ul>
+<li>Within <code>base.njk</code> add the basic HTML layout, i.e:</li>
+</ul>
+<pre><code class="language-html">     &lt;!doctype html&gt;
+     &lt;html lang=&quot;en&quot;&gt;
+     &lt;head&gt;
+          &lt;meta charset=&quot;UTF-8&quot;&gt;
+          &lt;meta name=&quot;viewport&quot; 
+                content=&quot;width=device-width, 
+                user-scalable=no, 
+                initial-scale=1.0, 
+                maximum-scale=1.0, 
+                minimum-scale=1.0&quot;&gt;
+          &lt;meta http-equiv=&quot;X-UA-Compatible&quot; 
+                content=&quot;ie=edge&quot;&gt;
+          &lt;title&gt;&lt;/title&gt;
+     &lt;/head&gt;
+     &lt;body&gt;
+
+          
+    
+     &lt;/body&gt;
+     &lt;/html&gt;
+</code></pre>
+<p>Back inside _src, create a folder called <code>CSS</code> and create a css file you will be using throughout your site within this folder.</p>
+<ul>
+<li>Add some styling while you’re at it so we can see later if the file was configuring correctly.</li>
+</ul>
+<p>Back inside base.njk, add this reference link to your CSS file, only replacing the ”your-file-name” portion (trust the process, I’ll explain later).</p>
+<p>Let’s jump back to your .eleventy.js file. Right now, if you were to “build” your site, 11ty would only be able to recognize your index.md file. To have 11ty recognize your _inlcudes and CSS folders and their content, add the following code to your .eleventy.js:</p>
+<pre><code class="language-js">    eleventyConfig.addPassthroughCopy(&quot;_src/_includes/&quot;);
+    eleventyConfig.addPassthroughCopy(&quot;./_src/css/&quot;);
+</code></pre>
+<p>Your .eleventy.js file should look like this:</p>
+<pre><code class="language-js">     module.exports = function (eleventyConfig){
+     eleventyConfig.addPassthroughCopy(&quot;_src/_includes/&quot;);
+     eleventyConfig.addPassthroughCopy(&quot;./_src/css/&quot;);
+    
+     return{
+          dir: {
+               input: “_src”,
+     output: “_site”
+                },
+            };
+    };
+
+</code></pre>
+<p>Now, in a terminal use the command <code>npm run build</code></p>
+<ul>
+<li>The command to “build” is the same command you created in Step 3</li>
+<li>When this command is used, 11ty will look for your  .eleventy.js file, discover that “_src” will be the input, and configure what’s directly inside _src and output a folder “_site” with configured content.</li>
+<li>After the command is completed, you will now see the new _site folder.</li>
+<li>Inside is not your initial <code>index.md</code>, but an <code>index.html</code> with your Markdown content configured to HTML.</li>
+<li>Every time you add new content within the _src file and <code>npm run build</code>, the entire _site folder will be overwritten <strong><em>as intended</em></strong>. Meaning you should only make changes to the _src folder.</li>
+<li>You <em>can</em> add content to the _site folder, but it will be erased if that same content isn’t added to the _src as well.</li>
+<li>The only time I open the _site folder is to make sure files are configuring correctly and to view 11tys filing methods (examples will be shown later in this tutorial)</li>
+</ul>
+<p><strong>IMPORTANT</strong></p>
+<ul>
+<li>From here on out, every time you &quot;build,&quot; study the filing system within the _site folder</li>
+<li>However the _site folder is laid out is how you should plan on linking external files.</li>
+<li>_site is what will be published to the web</li>
+</ul>
+<p>To view live changes locally, use the command <code>npm run start</code>(as created in Step 3) and click on the localhost link provided in the terminal.</p>
+<ul>
+<li>Congrats! You got some working HTML and CSS.</li>
+</ul>
+<h3>Step #3: Understanding the web of files and folders</h3>
+<p>Taking a step down into the _src folder, you should have the _includes and CSS folders and index.md</p>
+<ul>
+<li>Compared to the _site folder, the _site folder should</li>
+</ul>
+<h3>Step #4: Publishing to gh-pages</h3>
+<h3>Step #5: Layout Chaining</h3>
+<h3>Step #6: Creating Collections</h3>
+
+</main>
+
+        <footer>
+            <div id="footCont">
+                <div>
+                    <p><a href="https://savannahricks.github.io/CareerPortfolio/" class="footerA">This work</a> by
+                    <a property="cc:attributionName" href="https://github.com/SavannahRicks" class="footerA">Savannah Ricks</a> is licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" class="footerA" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Attribution-NonCommercial-ShareAlike 4.0 International<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt="Creative Commons Licence Image"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt="Creative Commons Licence Image"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt="Creative Commons Licence Image"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" alt="Creative Commons Licence Image"></a>
+                    </p>
+                    <p><script type="text/javascript" src="JS/script.js"></script></p>
+                </div>
+                <!--<div class="links">
+                    <a href="https://www.linkedin.com/in/savannah-ricks-a61640223/" target="_blank" class="linkreg">
+                        <img src="imgs/linkedin.png" alt="Click to view Savannah's LinkedIn profile." />
+                    </a>
+                    <a href="https://github.com/SavannahRicks" target="_blank" class="linkreg">
+                        <img src="imgs/githubIcon.png" alt="Click to view Savannah's GitHub profile." />
+                    </a>
+                    <a href="mailto:savannahricksofficial123@gmail.com" class="linkreg">
+                        <img src="imgs/email.png" alt="Click to email Savannah." />
+                    </a>
+                    <a class="homeResume" href="SAVANNAHRICKSresume2024.pdf" target="_blank" class="linkreg">Resumé</a>
+                </div>-->
+            </div>
+        </footer>
+    </body>
+</html>

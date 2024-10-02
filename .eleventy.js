@@ -1,6 +1,6 @@
 module.exports = function (eleventyConfig) {
     // Copy `_src/img/` to `_site/img`
-    eleventyConfig.addPassthroughCopy("_src/includes/");
+    eleventyConfig.addPassthroughCopy("_src/_includes/");
     eleventyConfig.addPassthroughCopy("./_src/css/");
     eleventyConfig.addPassthroughCopy("./_src/patterns/");
     eleventyConfig.addPassthroughCopy("./_src/stitches/");

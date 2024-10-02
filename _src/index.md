@@ -2,6 +2,7 @@
 title: Crochet Craze
 layout: home.njk
 templateEngineOverride: njk,md
+cssFile: css/style.css
 ---
 
 
