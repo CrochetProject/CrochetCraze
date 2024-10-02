@@ -144,20 +144,20 @@ pre {
 }
 
 
-/*.info {*/
-/*    !*display: none;*!*/
-/*    background-color: white;*/
-/*    border: 2px solid blue;*/
-/*    border-radius: 50%;*/
-/*    box-shadow: 0 0 10px blue;*/
-/*    pointer-events: none;*/
-/*    position: fixed;*/
-/*    top: -0rem;*/
-/*    left: -0rem;*/
-/*    height: 6rem;*/
-/*    width: 6rem;*/
-/*    transition: transform 0.4s, background 0.4s;*/
-/*}*/
+.info {
+    /*display: none;*/
+    background-color: white;
+    border: 2px solid blue;
+    border-radius: 50%;
+    box-shadow: 0 0 10px blue;
+    pointer-events: none;
+    position: fixed;
+    top: -0rem;
+    left: -0rem;
+    height: 6rem;
+    width: 6rem;
+    transition: transform 0.4s, background 0.4s;
+}
 
 @media screen and (min-width: 1360px) {
     /*#yarnBG {*/
