@@ -124,40 +124,49 @@ pre {
     margin: 1rem 0 0 0;
 }
 
+.imgSpace {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
 .imgSpace a{
     display: block;
     text-align: center;
     /*padding: 5rem;*/
-    background-color: papayawhip;
+    background-color: grey;
     height: 100%;
+    align-content: center;
 }
 
 
 .imgSpace p{
+    font-family: "Playfair Display", serif;
     /*margin: 0;*/
-    height: 5rem;
-
+    height: auto;
+    aspect-ratio: 1;
     /*display: flex;*/
     /*flex-wrap: wrap;*/
-    width: 100%;
-    margin: 0;
+    width: 45%;
+    margin: .5rem;
 }
 
 
-.info {
-    /*display: none;*/
-    background-color: white;
-    border: 2px solid blue;
-    border-radius: 50%;
-    box-shadow: 0 0 10px blue;
-    pointer-events: none;
-    position: fixed;
-    top: -0rem;
-    left: -0rem;
-    height: 6rem;
-    width: 6rem;
-    transition: transform 0.4s, background 0.4s;
-}
+/*.info {*/
+/*    !*display: none;*!*/
+/*    background-color: white;*/
+/*    border: 2px solid blue;*/
+/*    border-radius: 50%;*/
+/*    box-shadow: 0 0 10px blue;*/
+/*    pointer-events: none;*/
+/*    position: fixed;*/
+/*    top: -0rem;*/
+/*    left: -0rem;*/
+/*    height: 6rem;*/
+/*    width: 6rem;*/
+/*    transition: transform 0.4s, background 0.4s;*/
+/*}*/
 
 @media screen and (min-width: 1360px) {
     /*#yarnBG {*/
@@ -182,6 +191,9 @@ pre {
     h2 {
         font-size: 1.5rem;
     }
+    .imgSpace p {
+        width: 100%;
+    }
 }
 @media screen and (max-width: 530px) {
     #mainH1{
@@ -194,6 +206,9 @@ pre {
     }
     p {
         font-size: .9rem;
+    }
+    .imgSpace p {
+        margin: 0;
     }
 }
 @media screen and (max-width: 420px) {
