@@ -10,6 +10,14 @@ module.exports = function (eleventyConfig) {
 
     eleventyConfig.addWatchTarget("./_src/css/")
 
+    eleventyConfig.addNunjucksAsyncShortcode('svgIcon', async (src, alt, sizes) => {
+        let metadata = await Image(src, {
+            formats: ['svg'],
+            dryRun: true,
+        })
+        return metadata.svg[0].buffer.toString()
+    })
+
     return {
         dir: {
             input: "_src",
