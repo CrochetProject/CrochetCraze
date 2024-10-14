@@ -1,6 +1,7 @@
 ---
 title: Pattern Landing Page
 layout: other.njk
+cssFile: ../css/style.css
 ---
 
 # Patterns

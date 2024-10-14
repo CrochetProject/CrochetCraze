@@ -9,9 +9,11 @@ title: Granny Square
 [Diagram Pattern](#granny-square-pattern)
 [Written Pattern](../written-granny-square/index.html)
 
-<div>
+<div onload="objectLoad()">
     <object id="GSobject" data="../../imgs/Granny-squareSVG-wClasses.svg" type="image/svg+xml"></object>
 </div>
+
+
 
 [//]: # (<div id="info" class="info">WEEEEEEEEEEEEEEEEE</div>)
 
