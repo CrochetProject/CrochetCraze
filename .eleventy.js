@@ -1,4 +1,25 @@
+// const {imgPlugin} = require('fs');
+
 module.exports = function (eleventyConfig) {
+
+    // let getSvgContent = function (file) {
+    //     let relativeFilePath = `../src/imgs/${file}`;
+    //     let data = imgPlugin.readFileSync(relativeFilePath, function(err, contents) {
+    //             if (err) return err
+    //             return contents
+    //             }
+    //         );
+    //
+    //     return data.toString('utf8');
+    // }
+    // eleventyConfig.addShortcode("svg", getSvgContent);
+    //
+    //place this in MD file
+    // {% svg '../imgs/Granny-squareSVG-wClasses.svg' %}
+
+
+
+
     // Copy `_src/img/` to `_site/img`
     eleventyConfig.addPassthroughCopy("_src/_includes/");
     eleventyConfig.addPassthroughCopy("./_src/css/");
@@ -10,13 +31,8 @@ module.exports = function (eleventyConfig) {
 
     eleventyConfig.addWatchTarget("./_src/css/")
 
-    eleventyConfig.addNunjucksAsyncShortcode('svgIcon', async (src, alt, sizes) => {
-        let metadata = await Image(src, {
-            formats: ['svg'],
-            dryRun: true,
-        })
-        return metadata.svg[0].buffer.toString()
-    })
+
+
 
     return {
         dir: {

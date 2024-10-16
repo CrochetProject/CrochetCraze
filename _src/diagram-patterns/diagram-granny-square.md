@@ -14,12 +14,9 @@ title: Granny Square
 
 
 
-
-[//]: # (<div onload="objectLoad&#40;&#41;">)
-
-[//]: # (    <object id="GSobject" data="../../imgs/Granny-squareSVG-wClasses.svg" type="image/svg+xml"></object>)
-
-[//]: # (</div>)
+<div>
+    <object id="GSobject" data="../../imgs/Granny-squareSVG-wClasses.svg" type="image/svg+xml"></object>
+</div>
 
 
 
