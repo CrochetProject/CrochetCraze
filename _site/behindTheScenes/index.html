@@ -36,13 +36,14 @@
 <li><a href="#step2">Step #2: Base Layout, CSS, and 11ty Commands</a></li>
 <li><a href="#step3">Step #3: Publishing to gh-pages</a></li>
 <li><a href="#step4">Step #4: Layout Chaining</a></li>
-<li><a href="#step4-1">Step #4.1 Setting up a Navigation</a></li>
+<li><a href="#step4-1">Step #4.1: Setting up a Navigation</a></li>
+<li><a href="#step5">Step #5: Creating a Collection</a></li>
 </ul>
 <h3>Requirements<a id="requirements"></a></h3>
 <ul>
 <li>A fresh working github repository that you can easily push content to.</li>
 <li>Basic knowledge in node.js</li>
-<li>Knowledge in Markdown, HTML and CSS</li>
+<li>Knowledge in Markdown(MD), HTML and CSS</li>
 <li>For more information on the 11ty setup visit <a href="https://www.11ty.dev/">11ty.dev</a></li>
 <li>For a video tutorial of these instructions visit this video (*・‿・)ノ <a href="https://www.youtube.com/watch?v=p81J7G1qFAM&amp;list=PLRsQ6aSNe0GDFHNteM1VUSQrTJvIKoMas&amp;index=2">11ty.rocks tutorial</a></li>
 </ul>
@@ -210,8 +211,8 @@ layout: other.njk
 </ul>
 <p>Now, go ahead to your terminal, kill the local server if you're running one(<code>CTRL</code> or <code>CMD</code> and <code>y</code>), and <code>npm run build</code> then <code>npm run start</code> to view your newly built site.</p>
 <p><strong><em>IMPORTANT:</em></strong>
-Even though you are able to view live edits to your Markdown off of localhost, you <strong><em>must</em></strong> <code>npm run build</code> after adding a new file to your project.</p>
-<p>You may notice that we forgot to add a link to the new page... that was totally planned</p>
+Even though you are able to view live edits to your Markdown off of localhost, you <strong><em>must</em></strong> <code>npm run build</code> after adding a new file to your project and before pushing changes to GitHub.</p>
+<p>You may notice that we forgot to add a link to the new page... that was totally planned.</p>
 <h3>Step #4.1: Setting up a Navigation<a id="step4-1"></a></h3>
 <p>Let's view our _site folder real quick.</p>
 <p>Right inside my _site is:</p>
@@ -268,13 +269,18 @@ cssFile: css/styles.css
 ---
 </code></pre>
 <pre><code>---
-title: Pattern Landing
+title: Pattern Landing Page
 layout: other.njk
 cssFile: ../css/styles.css
 ---
 </code></pre>
-<h3>Step #5: <a id="step5"></a></h3>
-<h3>Step #6: Creating Collections<a id="step6"></a></h3>
+<ul>
+<li>{{ cssFile }} is Nunjucks pulling the information you place in your MD files. This trick is also very helpful when you have multiple CSS files. That way you can define which CSS file you want to use on whatever page from your MD file.</li>
+</ul>
+<p>This trick is also used for other files like JavaScript.</p>
+<h3>Step #5: Creating a Collection<a id="step5"></a></h3>
+<p>Collections is an 11ty feature that allows you to create a &quot;collection&quot; of pages with a consistent templating layout. Some examples could be a collection of blog posts, articles, tutorials etc. For this how-to, I will be creating a collection of crochet patterns called &quot;patterns&quot;.</p>
+<h3>Step #6: <a id="step6"></a></h3>
 
 </main>
 

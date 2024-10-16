@@ -65,8 +65,14 @@ ul {
     justify-content: end;
 }
 #nav a{
+    color: black;
     padding: 1rem;
     text-decoration: none;
+    transition: ease;
+    transition-duration: .5s;
+}
+#nav a:hover {
+    background-color: #d0c9cb;
 }
 #nav a:nth-child(1) {
     position: absolute;
@@ -151,6 +157,25 @@ pre {
     width: 45%;
     margin: .5rem;
 }
+
+.tab p{
+    margin: 1.5rem 0rem;
+    display: flex;
+    flex-direction: row;
+}
+.tab a{
+    /*margin: 1rem 1rem;*/
+    padding: .5rem 1rem;
+    background-color: #DEE2FF;
+    text-decoration: none;
+    color: black;
+    transition: ease;
+    transition-duration: .5s;
+}
+.tab a:hover{
+    background-color: #a2acf2;
+}
+
 
 
 /*.info {*/

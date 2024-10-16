@@ -22,12 +22,13 @@ Another huge part of 11ty is its ability to have Collections, i.e. a “collecti
 - [Step #2: Base Layout, CSS, and 11ty Commands](#step2)
 - [Step #3: Publishing to gh-pages](#step3)
 - [Step #4: Layout Chaining](#step4)
-- [Step #4.1 Setting up a Navigation](#step4-1)
+- [Step #4.1: Setting up a Navigation](#step4-1)
+- [Step #5: Creating a Collection](#step5)
 
 ### Requirements<a id="requirements"></a>
 -	A fresh working github repository that you can easily push content to.
 -	Basic knowledge in node.js
--   Knowledge in Markdown, HTML and CSS
+-   Knowledge in Markdown(MD), HTML and CSS
 -	For more information on the 11ty setup visit [11ty.dev](https://www.11ty.dev/)
 -	For a video tutorial of these instructions visit this video (*・‿・)ノ [11ty.rocks tutorial](https://www.youtube.com/watch?v=p81J7G1qFAM&list=PLRsQ6aSNe0GDFHNteM1VUSQrTJvIKoMas&index=2)
 
@@ -201,9 +202,9 @@ layout: other.njk
 Now, go ahead to your terminal, kill the local server if you're running one(`CTRL` or `CMD` and `y`), and `npm run build` then `npm run start` to view your newly built site.
 
 **_IMPORTANT:_**
-Even though you are able to view live edits to your Markdown off of localhost, you **_must_** `npm run build` after adding a new file to your project.
+Even though you are able to view live edits to your Markdown off of localhost, you **_must_** `npm run build` after adding a new file to your project and before pushing changes to GitHub.
 
-You may notice that we forgot to add a link to the new page... that was totally planned
+You may notice that we forgot to add a link to the new page... that was totally planned.
 
 ### Step #4.1: Setting up a Navigation<a id="step4-1"></a>
 
@@ -274,14 +275,22 @@ cssFile: css/styles.css
 
 ```
 ---
-title: Pattern Landing
+title: Pattern Landing Page
 layout: other.njk
 cssFile: ../css/styles.css
 ---
 ```
 
+- {%raw%}{{ cssFile }}{%endraw%} is Nunjucks pulling the information you place in your MD files. This trick is also very helpful when you have multiple CSS files. That way you can define which CSS file you want to use on whatever page from your MD file.
+
+This trick is also used for other files like JavaScript.
 
 
-### Step #5: <a id="step5"></a>
+### Step #5: Creating a Collection<a id="step5"></a>
 
-### Step #6: Creating Collections<a id="step6"></a>
+Collections is an 11ty feature that allows you to create a "collection" of pages with a consistent templating layout. Some examples could be a collection of blog posts, articles, tutorials etc. For this how-to, I will be creating a collection of crochet patterns called "patterns".
+
+
+
+
+### Step #6: <a id="step6"></a>

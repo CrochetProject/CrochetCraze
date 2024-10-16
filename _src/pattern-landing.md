@@ -14,10 +14,4 @@ cssFile: ../css/style.css
 
 {% endfor %}
 
-{%for page in collections.writtenpatternfold %}
-{{page.data.title}}
-[]({{page.url}})
-
-{% endfor %}
-
 </div>

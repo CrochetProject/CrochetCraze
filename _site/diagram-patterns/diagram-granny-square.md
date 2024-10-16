@@ -4,12 +4,12 @@ title: Granny Square
 
 ## Granny Square Pattern
 
-
+<div class="tab">
 
 [Diagram Pattern](#granny-square-pattern)
-[Written Pattern](../written-granny-square/index.html)
+[Written Pattern](../../written-patterns/written-granny-square/index.html)
 
-
+</div>
 
 
 
