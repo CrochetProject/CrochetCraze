@@ -1,18 +1,23 @@
-console.log("hello");
-let svgObject = document.getElementById('GSobject').contentDocument;
-// let svg = svgObject.contentDocument;
-console.log(svgObject);
+window.addEventListener('DOMContentLoaded', init, false)
+
 
 
 //GSsvg is ID of <object> containing Granny Square SVG
-let chain = svgObject.getElementsByClassName('chain');
-console.log(chain.length);
-let doubleStitch = svgObject.getElementsByClassName('doubleStitch');
-let slipSt = svgObject.getElementsByClassName('slipSt');
+
 // console.log("hello");
 
 
-function objectLoad() {
+function init(){
+
+    console.log("hello");
+    let svgObject = document.getElementById('GSobject').contentDocument;
+// let svg = svgObject.contentDocument;
+    console.log(svgObject);
+
+    let chain = svgObject.getElementsByClassName('chain');
+    console.log(chain.length);
+    let doubleStitch = svgObject.getElementsByClassName('doubleStitch');
+    let slipSt = svgObject.getElementsByClassName('slipSt');
 
     console.log("page is fully loaded");
     // console.log(chain.className);
