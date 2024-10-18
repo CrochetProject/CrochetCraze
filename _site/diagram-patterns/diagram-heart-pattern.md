@@ -12,5 +12,5 @@ title: Heart Pattern
 </div>
 
 <div >
-    <object id="GSsvg" data="../../imgs/heart.svg" type="image/svg+xml"></object>
+    <object id="GSobject" data="../../imgs/heart.svg" type="image/svg+xml"></object>
 </div>

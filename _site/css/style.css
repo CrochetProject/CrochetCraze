@@ -116,6 +116,7 @@ main {
     width: 100%;
 }
 footer {
+    margin: 2rem 0 0 0;
     padding: 1rem 2rem;
     background-color: #E9E9E9;
 }
@@ -176,16 +177,16 @@ pre {
     background-color: #a2acf2;
 }
 
-.chain.on {
-    /*filter: drop-shadow(0px 0px 25px rgb(245 237 22 / 1));*/
-    fill: yellow;
-    stroke: yellow;
-    stroke-width: 10;
-}
+/*.chain.on {*/
+/*    filter: drop-shadow(0px 0px 25px rgb(245 237 22 / 1));*/
+/*    fill: yellow;*/
+/*    stroke: yellow;*/
+/*    stroke-width: 10;*/
+/*}*/
 
-.chain {
-    fill: blue;
-}
+/*.chain {*/
+/*    fill: blue;*/
+/*}*/
 
 /*.info {*/
 /*    !*display: none;*!*/
