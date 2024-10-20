@@ -43,23 +43,22 @@ function stitchHighlight(){
             setTimeout(() => {
                 divDBST.style.left = `${e.clientX + width/2}px`;//setting position based off X pos
                 divDBST.style.top = `${e.clientY - height}px`;//setting position based off Y pos
-                divDBST.style.left = `${e.clientX + width/2}px`;
-                divDBST.style.top = `${e.clientY - height}px`;
-
+                divCH.style.left = `${e.clientX + width/2}px`;
+                divCH.style.top = `${e.clientY - height}px`;
+                divSlipSt.style.left = `${e.clientX + width/2}px`;
+                divSlipSt.style.top = `${e.clientY - height}px`;
             }, 0);
         }
         else if(w > 720){
             setTimeout(() => {
                 divDBST.style.left = `${e.clientX}px`;//setting position based off X pos
                 divDBST.style.top = `${e.clientY - height}px`;//setting position based off Y pos
-
+                divCH.style.left = `${e.clientX + width/2}px`;
+                divCH.style.top = `${e.clientY - height}px`;
+                divSlipSt.style.left = `${e.clientX + width/2}px`;
+                divSlipSt.style.top = `${e.clientY - height}px`;
             }, 0);
         }else{}
-        // setTimeout(() => {
-        //     divDBST.style.left = `${e.clientX + width*2}px`;
-        //     divDBST.style.top = `${e.clientY + height*2}px`;
-        //
-        // }, 20);
     });
 }
 function stitchMouseOut(){

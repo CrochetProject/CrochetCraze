@@ -19,8 +19,8 @@ title: Granny Square
     viewBox="0 0 1101.0734 1101.3435">
     <style>
     .chain.on, .doubleStitch.on, .slipSt.on {
-    filter: drop-shadow(0px 0px 25px rgb(245 237 22 / 1));
-    stroke: yellow;
+    filter: drop-shadow(0px 0px 25px rgb(243 219 88 / 1));
+    stroke: rgb(243 219 88 / 1);
     stroke-width: 10;
     }
     </style>
@@ -568,7 +568,8 @@ title: Granny Square
     <style>
         #circlePath {
             fill: white;
-            stroke: black; 
+            stroke: #DEE2FF; 
+            stroke-width: 5px;
         }
         #textPath {
             fill: black;
@@ -596,7 +597,6 @@ title: Granny Square
     <style>
         #circlePath {
             fill: white;
-            stroke: black; 
         }
         #textPath {
             fill: black;
@@ -624,10 +624,9 @@ title: Granny Square
     <style>
         #circlePath {
             fill: white;
-            stroke: black; 
         }
         #textPath {
-            fill: black;
+            fill: #FFEEF1;
             font-size: 1rem;
             font-weight: bold;
         }
@@ -643,8 +642,3 @@ title: Granny Square
     </text>
 </svg>
 </div>
-
-
-
-[//]: # (<div id="info" class="info">WEEEEEEEEEEEEEEEEE</div>)
-
