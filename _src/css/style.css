@@ -34,7 +34,7 @@ h2 {
 }
 h3 {
     font-size: 1.2rem;
-    margin: 5rem 0 0 0;
+    margin: 7rem 0 0 0;
 }
 p, li {
     font-family: "Karla", sans-serif;
@@ -54,7 +54,6 @@ ul {
     margin: 0;
 }
 #nav{
-    /*position: fixed;*/
     font-family: "Playfair Display", serif;
     text-decoration: none;
     list-style: none;
@@ -74,9 +73,12 @@ ul {
 #nav a:hover {
     background-color: #d0c9cb;
 }
-#nav a:nth-child(1) {
+#nav a:nth-child(2) {
     position: absolute;
     left: 0;
+}
+.button {
+    display: none;
 }
 #yarnBG {
     position: absolute;
@@ -112,9 +114,10 @@ main {
     justify-self: center;
     margin: 0;
 }
-#GSsvg{
-    width: 100%;
+svg{
+    max-height: 90vh;
 }
+
 footer {
     margin: 2rem 0 0 0;
     padding: 1rem 2rem;
@@ -123,13 +126,21 @@ footer {
 #footCont div {
     width: 50%;
 }
-
-code, pre {
-    background-color: #d0c9cb;
+.links img{
+    max-width: 30px;
+}
+code {
+    background-color: #DEE2FF;
 }
 pre {
     margin: 1rem 0 0 0;
+    width: 100%;
+    background-color: #d0c9cb;
+    & code {
+        background-color: #d0c9cb;
+    }
 }
+
 
 .imgSpace {
     display: flex;
@@ -138,25 +149,45 @@ pre {
     justify-content: space-between;
 }
 
-.imgSpace a{
-    display: block;
+.imgSpaceGroup{
+    width: 46%;
+    aspect-ratio: 1;
+    margin: .5rem;
     text-align: center;
-    /*padding: 5rem;*/
-    background-color: grey;
-    height: 100%;
-    align-content: center;
+}
+.imgSpaceGroup a {
+    font-family: "Playfair Display", serif;
+    color: black;
+    text-decoration: none;
 }
 
+.pinkContainer {
+    position: relative;
+}
 
-.imgSpace p{
-    font-family: "Playfair Display", serif;
-    /*margin: 0;*/
+.pinkImage {
+    display: block;
+    width: 100%;
+}
+.pinkImageFiller {
+    background-color: grey;
+    width: 100%;
     height: auto;
     aspect-ratio: 1;
-    /*display: flex;*/
-    /*flex-wrap: wrap;*/
-    width: 45%;
-    margin: .5rem;
+}
+
+.pinkOverlay {
+    z-index: 3;
+    position: absolute;
+    background-color: #CBC0D3;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    transition: ease .4s;
+}
+
+.pinkContainer:hover .pinkOverlay {
+    opacity: .5;
 }
 
 .tab p{
@@ -172,21 +203,11 @@ pre {
     color: black;
     transition: ease;
     transition-duration: .5s;
+    font-family: "Playfair Display", serif;
 }
 .tab a:hover{
     background-color: #a2acf2;
 }
-
-/*.chain.on {*/
-/*    filter: drop-shadow(0px 0px 25px rgb(245 237 22 / 1));*/
-/*    fill: yellow;*/
-/*    stroke: yellow;*/
-/*    stroke-width: 10;*/
-/*}*/
-
-/*.chain {*/
-/*    fill: blue;*/
-/*}*/
 
 #divDBST, #divCH, #divSlipSt{
     display: initial;
@@ -202,6 +223,44 @@ pre {
 }
 #divDBST.display, #divCH.display, #divSlipSt.display {
     opacity: 1;
+}
+.chain, .textDBCrochet, .slipSt{
+    transition: ease .5s;
+}
+.chain:hover {
+    background-color: #CBC0D3;
+}
+.textDBCrochet:hover {
+    background-color: #a2acf2;
+}
+.slipSt:hover {
+    background-color: #FFEEF1;
+}
+
+#backToTop {
+    width: 50px;
+    height: auto;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: #FFEEF1;
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    transition: ease .5s;
+    border: #CBC0D3 solid 5px;
+    font-size: 2rem;
+    text-align: center;
+    justify-content: center;
+
+}
+#backToTop a {
+    text-decoration: none;
+    color: black;
+}
+#backToTop:hover {
+    border: #a2acf2 solid 5px;
+    transition: ease .5s;
+    background-color: #DEE2FF;
 }
 
 @media screen and (min-width: 1360px) {
@@ -229,6 +288,26 @@ pre {
     }
     .imgSpace p {
         width: 100%;
+    }
+    #home {
+        width: 80vw;
+    }
+    .button {
+        display: flex;
+    }
+    #nav {
+        flex-direction: column;
+        position: fixed;
+        z-index: 5;
+        top: 0;
+        background-color: rgb(161 161 161 / .5);
+        width: 100%;
+    }
+    header {
+        margin: 3.5rem 0 0 0 ;
+    }
+    #nav a:nth-child(1){
+        position: initial;
     }
 }
 @media screen and (max-width: 530px) {

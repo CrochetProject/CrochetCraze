@@ -12,26 +12,26 @@ title: Written Heart Pattern
 </div>
 
 Starting the Granny Square:
-- Chain 4 and join to form a loop.
+- <span class="chain">Chain</span> 4 and join to form a loop.
 
 Row 1:
-- Chain 3 (counts as your first double crochet), then work 2 more double crochets into the ring. This forms your first 3 dc cluster.
-- Chain 2 (this is your first corner), then make another cluster of 3 double crochets into the same ring. Repeat this three more times to complete the first round.
-- Join with a slip stitch to the top of the initial chain-3.
+- <span class="chain">Chain</span> 3 (counts as your first <span class="textDBCrochet">Double crochet</span>), then work 2 more <span class="textDBCrochet">Double crochet</span>s into the ring. This forms your first 3 <span class="textDBCrochet">Double crochet</span> cluster.
+- <span class="chain">Chain</span> 2 (this is your first corner), then make another cluster of 3 <span class="textDBCrochet">Double crochet</span>s into the same ring. Repeat this three more times to complete the first round.
+- Join with a <span class="slipSt">Slip stitch</span> to the top of the initial <span class="chain">Chain</span>-3.
 
 Row 2:
-- Chain 3 (counts as your first double crochet), then work 2 more double crochets into the same corner space.
-- Chain 2 (corner), then make another cluster of 3 double crochets into the same corner.
-- Chain 1, skip the next shell, and make a cluster of 3 double crochets into the next corner space.
-- Repeat the corner pattern (cluster, chain 2, cluster) around the square.
-- Join with a slip stitch to the top of the initial chain-3.
+- <span class="chain">Chain</span> 3 (counts as your first <span class="textDBCrochet">Double crochet</span>), then work 2 more <span class="textDBCrochet">Double crochet</span>s into the same corner space.
+- <span class="chain">Chain</span> 2 (corner), then make another cluster of 3 <span class="textDBCrochet">Double crochet</span>s into the same corner.
+- <span class="chain">Chain</span> 1, skip the next shell, and make a cluster of 3 <span class="textDBCrochet">Double crochet</span>s into the next corner space.
+- Repeat the corner pattern (cluster, <span class="chain">Chain</span> 2, cluster) around the square.
+- Join with a <span class="slipSt">Slip stitch</span> to the top of the initial <span class="chain">Chain</span>-3.
 
 Two Half Circle:
-- Slip stitch in next chain to move up to the tip of the corner.
-- Dc into the chain-1 space between the two dc clusters.
-- Dc in that same space 10 more times.
-- Slip stitch into tip of corner.
-- Dc into the chain-1 space between the two dc clusters.
-- Dc in that same space 10 more times.
-- Slip stitch into tip of corner.
+- <span class="slipSt">Slip stitch</span> in next <span class="chain">Chain</span> to move up to the tip of the corner.
+- <span class="textDBCrochet">Double crochet</span> into the <span class="chain">Chain</span>-1 space between the two <span class="textDBCrochet">Double crochet</span> clusters.
+- <span class="textDBCrochet">Double crochet</span> in that same space 10 more times.
+- <span class="slipSt">Slip stitch</span> into tip of corner.
+- <span class="textDBCrochet">Double crochet</span> into the <span class="chain">Chain</span>-1 space between the two <span class="textDBCrochet">Double crochet</span> clusters.
+- <span class="textDBCrochet">Double crochet</span> in that same space 10 more times.
+- <span class="slipSt">Slip stitch</span> into tip of corner.
 - Fasten off.

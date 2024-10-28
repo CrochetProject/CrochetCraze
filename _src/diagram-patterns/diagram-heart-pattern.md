@@ -15,7 +15,7 @@ title: Heart Pattern
 <svg 
     version="1.1"
     id="svg1"
-    viewBox="0 0 1132.8598 1155.2485"
+    viewBox="-10 -10 1152 1175"
     xml:space="preserve">
     <style>
     .chain.on, .doubleStitch.on, .slipSt.on {
@@ -454,6 +454,7 @@ title: Heart Pattern
         #circlePath {
             fill: white;
             stroke: #DEE2FF; 
+            stroke-width: 5px;
         }
         #textPath {
             fill: black;

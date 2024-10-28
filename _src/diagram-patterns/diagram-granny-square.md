@@ -15,8 +15,7 @@ title: Granny Square
 <svg
     version="1.1"
     id="svg1"
-    width="100%"
-    viewBox="0 0 1101.0734 1101.3435">
+    viewBox="-10 -10 1121 1121">
     <style>
     .chain.on, .doubleStitch.on, .slipSt.on {
     filter: drop-shadow(0px 0px 25px rgb(243 219 88 / 1));

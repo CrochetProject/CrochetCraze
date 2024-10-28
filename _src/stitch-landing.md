@@ -8,9 +8,44 @@ cssFile: ../css/style.css
 
 <div class="imgSpace">
 
-{%for page in collections.stitchfold %}
-{{page.data.title}}
-[]({{page.url}})
+<div class="imgSpaceGroup">
+    <a href="../stitches/chain/index.html">
+        Chain
+        <div class="pinkContainer">
+            <div class="pinkOverlay"></div>
+            <div class="pinkImageFiller"></div>
+        </div>
+    </a>
+</div>
 
-{% endfor %}
+<div class="imgSpaceGroup">
+    <a href="../stitches/double-stitch/index.html">
+        Double Crochet
+        <div class="pinkContainer">
+            <div class="pinkOverlay"></div>
+            <div class="pinkImageFiller"></div>
+        </div>
+    </a>
+</div>
+
+<div class="imgSpaceGroup">
+    <a href="../stitches/half-double-stitch/index.html">
+        Half Double Crochet
+        <div class="pinkContainer">
+            <div class="pinkOverlay"></div>
+            <div class="pinkImageFiller"></div>
+        </div>
+    </a>
+</div>
+
+<div class="imgSpaceGroup">
+    <a href="../stitches/slip-stitch/index.html">
+        Slip Stitch
+        <div class="pinkContainer">
+            <div class="pinkOverlay"></div>
+            <div class="pinkImageFiller"></div>
+        </div>
+    </a>
+</div>
+
 </div>
