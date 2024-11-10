@@ -131,8 +131,21 @@ footer {
 #footCont div {
     width: 50%;
 }
-.links img{
-    max-width: 30px;
+#footCont {
+    display: flex;
+    flex-direction: row;
+}
+.links{
+    display: flex;
+    flex-direction: column;
+
+     & a {
+         margin: .5rem 0;
+         text-align: right;
+    }
+}
+#copyright{
+    width: 50%;
 }
 code {
     background-color: #DEE2FF;
