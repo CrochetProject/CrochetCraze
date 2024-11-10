@@ -1,5 +1,5 @@
 {
-  "layout": "stitch.njk",
+  "layout": "templates/stitch.njk",
   "tags": "stitchfold",
-  "permalink": false
+  "cssFile": "../../css/style.css"
 }

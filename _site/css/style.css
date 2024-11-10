@@ -33,8 +33,8 @@ h2 {
     text-align: center;
 }
 h3 {
-    font-size: 1rem;
-    margin: 0;
+    font-size: 1.2rem;
+    margin: 7rem 0 0 0;
 }
 p, li {
     font-family: "Karla", sans-serif;
@@ -47,11 +47,18 @@ p, li {
     line-height: 1.5;
 }
 p {
-    margin: 0 0 1rem 0;
+    margin: 1.5rem 0 0 0;
 
 }
+ul {
+    margin: 0;
+}
+span.critique {
+    display: block;
+    width: 70%;
+    margin: 0 auto;
+}
 #nav{
-    /*position: fixed;*/
     font-family: "Playfair Display", serif;
     text-decoration: none;
     list-style: none;
@@ -62,12 +69,21 @@ p {
     justify-content: end;
 }
 #nav a{
+    color: black;
     padding: 1rem;
     text-decoration: none;
+    transition: ease;
+    transition-duration: .5s;
 }
-#nav a:nth-child(1) {
+#nav a:hover {
+    background-color: #d0c9cb;
+}
+#nav a:nth-child(2) {
     position: absolute;
     left: 0;
+}
+.button {
+    display: none;
 }
 #yarnBG {
     position: absolute;
@@ -103,12 +119,166 @@ main {
     justify-self: center;
     margin: 0;
 }
+svg{
+    max-height: 90vh;
+}
+
 footer {
+    margin: 2rem 0 0 0;
     padding: 1rem 2rem;
     background-color: #E9E9E9;
 }
 #footCont div {
     width: 50%;
+}
+#footCont {
+    display: flex;
+    flex-direction: row;
+}
+.links{
+    display: flex;
+    flex-direction: column;
+
+     & a {
+         margin: .5rem 0;
+         text-align: right;
+    }
+}
+#copyright{
+    width: 50%;
+}
+code {
+    background-color: #DEE2FF;
+}
+pre {
+    margin: 1rem 0 0 0;
+    width: 100%;
+    background-color: #d0c9cb;
+    & code {
+        background-color: #d0c9cb;
+    }
+}
+
+
+.imgSpace {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.imgSpaceGroup{
+    width: 46%;
+    aspect-ratio: 1;
+    margin: .5rem;
+    text-align: center;
+}
+.imgSpaceGroup a {
+    font-family: "Playfair Display", serif;
+    color: black;
+    text-decoration: none;
+}
+
+.pinkContainer {
+    position: relative;
+}
+
+.pinkImage {
+    display: block;
+    width: 100%;
+}
+.pinkImageFiller {
+    background-color: grey;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+}
+
+.pinkOverlay {
+    z-index: 3;
+    position: absolute;
+    background-color: #CBC0D3;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    transition: ease .4s;
+}
+
+.pinkContainer:hover .pinkOverlay {
+    opacity: .5;
+}
+
+.tab p{
+    margin: 1.5rem 0rem;
+    display: flex;
+    flex-direction: row;
+}
+.tab a{
+    /*margin: 1rem 1rem;*/
+    padding: .5rem 1rem;
+    background-color: #DEE2FF;
+    text-decoration: none;
+    color: black;
+    transition: ease;
+    transition-duration: .5s;
+    font-family: "Playfair Display", serif;
+}
+.tab a:hover{
+    background-color: #a2acf2;
+}
+
+#divDBST, #divCH, #divSlipSt{
+    display: initial;
+    opacity: 0;
+    pointer-events: none;
+    filter: drop-shadow(0px 0px 60px rgb(0 12 102 / 1));
+    position: fixed;
+    top: -0rem;
+    left: -0rem;
+    height: 6rem;
+    width: 6rem;
+    transition: ease .5s;
+}
+#divDBST.display, #divCH.display, #divSlipSt.display {
+    opacity: 1;
+}
+.chain, .textDBCrochet, .slipSt{
+    transition: ease .5s;
+}
+.chain:hover {
+    background-color: #CBC0D3;
+}
+.textDBCrochet:hover {
+    background-color: #a2acf2;
+}
+.slipSt:hover {
+    background-color: #FFEEF1;
+}
+
+#backToTop {
+    width: 50px;
+    height: auto;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: #FFEEF1;
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    transition: ease .5s;
+    border: #CBC0D3 solid 5px;
+    font-size: 2rem;
+    text-align: center;
+    justify-content: center;
+
+}
+#backToTop a {
+    text-decoration: none;
+    color: black;
+}
+#backToTop:hover {
+    border: #a2acf2 solid 5px;
+    transition: ease .5s;
+    background-color: #DEE2FF;
 }
 
 @media screen and (min-width: 1360px) {
@@ -134,6 +304,29 @@ footer {
     h2 {
         font-size: 1.5rem;
     }
+    .imgSpace p {
+        width: 100%;
+    }
+    #home {
+        width: 80vw;
+    }
+    .button {
+        display: flex;
+    }
+    /*#nav {*/
+    /*    flex-direction: column;*/
+    /*    position: fixed;*/
+    /*    z-index: 5;*/
+    /*    top: 0;*/
+    /*    background-color: rgb(161 161 161 / .5);*/
+    /*    width: 100%;*/
+    /*}*/
+    header {
+        margin: 3.5rem 0 0 0 ;
+    }
+    #nav a:nth-child(1){
+        position: initial;
+    }
 }
 @media screen and (max-width: 530px) {
     #mainH1{
@@ -146,6 +339,9 @@ footer {
     }
     p {
         font-size: .9rem;
+    }
+    .imgSpace p {
+        margin: 0;
     }
 }
 @media screen and (max-width: 420px) {
