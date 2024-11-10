@@ -9,7 +9,9 @@ cssFile: ../css/style.css
 
 # Behind the Scenes <a id="top"></a>
 
-## Using 11ty
+## Using 11ty and SVGs
+
+<span class="critique">_Is there something incorrect or needs rephrasing?? Go to [CrochetCraze GitHub issue](https://github.com/CrochetProject/CrochetCraze/issues/1) and write a comment! Or email me at srr5618@psu.edu_</span>
 
 <a href="../behindTheScenes/index.html#top"><div id="backToTop">⇧</div></a>
 
@@ -21,12 +23,14 @@ Another huge part of 11ty is its ability to have Collections, i.e. a “collecti
 
 ### [Contents](#contents)<a id="contents"></a>
 - [Requirements](#requirements)
-- [Step #1: Download and Configuration](#step1)
-- [Step #2: Base Layout, CSS, and 11ty Commands](#step2)
-- [Step #3: Publishing to gh-pages](#step3)
-- [Step #4: Layout Chaining](#step4)
-- [Step #4.1: Setting up a Navigation](#step4-1)
-- [Step #5: Creating a Collection](#step5)
+- [Part #1: Download and Configuration](#step1)
+- [Part #2: Base Layout, CSS, and 11ty Commands](#step2)
+- [Part #3: Publishing to gh-pages](#step3)
+- [Part #4: Layout Chaining](#step4)
+- [Part #4.5: Setting up a Navigation](#step4-5)
+- [Part #5: Making CSS/JS Easier to Link Across All Pages](#step5)
+- [Part #6: Creating a Collection](#step6)
+- [Part #6.5: Linking to Pages within a Collection](#step6-5)
 
 ### Requirements<a id="requirements"></a>
 -	A fresh, working GitHub repository that you can easily push content to.
@@ -35,7 +39,7 @@ Another huge part of 11ty is its ability to have Collections, i.e. a “collecti
 -	For more information on the 11ty setup visit [11ty.dev](https://www.11ty.dev/)
 -	For a video tutorial of the 11ty instructions visit this video (*・‿・)ノ [11ty.rocks tutorial](https://www.youtube.com/watch?v=p81J7G1qFAM&list=PLRsQ6aSNe0GDFHNteM1VUSQrTJvIKoMas&index=2)
 
-### Step #1: Download and Configuration <a id="step1"></a>
+### Part #1: Download and Configuration <a id="step1"></a>
 In your terminal of choice, navigate to your repo and use `npm init -y` to initialize the project. 
    - A `package.json` will appear in your repo directory
 
@@ -71,7 +75,7 @@ module.exports = function (eleventyConfig){
 ```
 The code above is telling 11ty to take everything within your future `_src` folder, convert a copy, and place it inside of `_site`.
 
-### Step #2: Base Layout, CSS, and 11ty Commands <a id="step2"></a>
+### Part #2: Base Layout, CSS, and 11ty Commands <a id="step2"></a>
 Next, create a folder directory called `_src`. Within the folder `_src`, create a folder called `_includes`. Within `_includes`, create a file called `base.njk` (the Nunjucks file name can be anything, but base is standard).
    - Within `base.njk` add some basic HTML layout, i.e:
 ```html
@@ -141,10 +145,10 @@ module.exports = function (eleventyConfig){
 ```
 
 Now, in a terminal use the command `npm run build`
-- The command to “build” is the same command you created in **Step #1** 
-- When this command is used, 11ty will look for your  `.eleventy.js` file, discover that `_src` will be the input, and configure what’s directly inside `_src`, then output a folder `_site` with the configured content.
+- The command to “build” is the same command you created in **Part #1** 
+- When this command is used, 11ty will look for your  `.eleventy.js` file, discover that `_src` will be the input, and configure what’s inside `_src`, then output a folder `_site` with the configured content.
 - After the command is completed, you will now see the new `_site` folder.
-- Inside `_site` is not your initial `index.md`, but an `index.html` with your Markdown content configured to HTML.
+- Inside `_site` is _not_ your initial `index.md`, but an `index.html` with your Markdown content configured to HTML.
 - Every time you add new content within the `_src` file and `npm run build`, your changes will be converted and placed in the existing `_site`.
 - You _can_ add content to the `_site` folder, but it will be erased if that same content isn’t added to the `_src` as well.
 - The only time I open the `_site` folder is to make sure files are configuring correctly and to view 11tys filing layout.
@@ -178,10 +182,11 @@ repo /
 |-- package-lock.json
 ```
 
-To view live changes locally, use the command `npm run start`(as created in **Step #3**) and click on the localhost link provided in the terminal.
+To view live changes locally, use the command `npm run start`(as created in **Part #1**) and click on the localhost link provided in the terminal.
 - Congrats! You got some working HTML and CSS!
+- To kill the localhost, in the terminal use `CTRL/CMD + C` then `Y`.
 
-### Step #3: Publishing to gh-pages<a id="step3"></a>
+### Part #3: Publishing to gh-pages<a id="step3"></a>
 
 Let's set up your project for publishing, before we get into some crazy stuff. 
 
@@ -201,15 +206,15 @@ Under "Branch" set the drop-down to "gh-pages" and "/(root)" and then hit Save.
 - Your site link is provided at the top of the Pages settings.
 
 
-### Step #4: Layout Chaining<a id="step4"></a>
+### Part #4: Layout Chaining<a id="step4"></a>
 
-You could potentially build an entire website by making multiple Markdown files using the base.njk layout, but 11ty has so much more to offer. The biggest feature 11ty offers is layout chaining, which gives you the ability to make a wide variety of templating for different versions of pages.
+You could potentially build an entire website by making multiple Markdown files using the `base.njk` layout, but 11ty has so much more to offer. The biggest feature 11ty offers is layout chaining, which gives you the ability to make a wide variety of templating for different versions of pages.
 
-For this Crochet Craze, I created a "Home" template and an "Other" template that branches off of the base.njk. That way, only the homepage has a different layout than the rest. Just be aware that all future pages will be within its own named folder containing index.html. Unfortunately, this will eventually cause some weird linking issues for the future nav bar.
+For this Crochet Craze, I created a "Home" template and an "Other" template that branches off of the `base.njk`. That way, only the homepage has a different layout than the rest. Just be aware that all future pages will be within its own named folder containing an `index.html`. Unfortunately, this will eventually cause some weird linking issues for the future nav bar. We will fix the nav bar in **Part #4.1**.
 
-So, here's how ya do it: 
+So, here's how ya layout chain: 
 
-Inside of _includes, create two .njk files. They can be named anything, but if one is for Home and the second is for everything else. I named them `home.njk` and `other.njk`.
+Inside of `_includes`, create two `.njk` files. They can be named anything, but if one is for Home and the second is for everything else. I named them `home.njk` and `other.njk`.
 
 Next, add this code to both `home.njk` and `other.njk`:
 ```
@@ -219,9 +224,9 @@ layout: base.njk
 ```
 Now, add some differentiating features between the two layouts that can help distinguish one page from another once published. A good example would be something like headers with different texts.
 
-Next, move to your index.md file and change the layout from `base.njk` to `home.njk`
+Next, move to your `index.md` file and change the layout from `base.njk` to `home.njk`.
 
-Then, inside of _src, create a new Markdown file and name it however you want. For my example, I named it `pattern-landing.md`
+Then, inside of `_src`, create a new Markdown file and name it however you want. For my example, I named it `pattern-landing.md`.
 - Inside of `pattern-landing.md` I added:
 ```
 ---
@@ -231,14 +236,14 @@ layout: other.njk
 ```
 - Go ahead and add some content in Markdown too.
 
-Now, go ahead to your terminal, kill the local server if you're running one(`CTRL` or `CMD` and `y`), and `npm run build` then `npm run start` to view your newly built site.
+Now, go ahead to your terminal, kill the local server if you're running one(`CTRL/CMD + C` then `Y`), and `npm run build` then `npm run start` to view your newly built site.
 
 **_IMPORTANT:_**
-Even though you are able to view live edits to your Markdown off of localhost, you **_must_** `npm run build` **after** adding a new file to your project and **before** pushing changes to GitHub.
+Even though you are able to view most live edits to your Markdown off of localhost, you **_must_** `npm run build` **after** adding a new file to your project and **before** pushing changes to GitHub.
 
-You may notice that we forgot to add a link to the new page... that was totally planned.
+`base.njk`, `home.njk` and `other.njk` are a part of a chaining layout. I like to think of it as a Russian Nesting Doll situation. `base.njk` is the most outer shell. `home.njk` and `other.njk` are equal but within the `base.njk`. Our content in the Markdown files is the innermost shell. When we "build", 11ty takes all the pieces, puts together the Russian Nesting Doll, and outputs HTML pages.
 
-### Step #4.1: Setting up a Navigation<a id="step4-1"></a>
+### Part #4.5: Setting up a Navigation<a id="step4-5"></a>
 
 Let's view our _site folder real quick. 
 
@@ -258,7 +263,7 @@ _site /
 - Yours doesn't have to look exactly like mine with naming schemes, but the general structure should be the same.
 - As you can see, my Pattern Landing HTML file is within the folder `pattern-landing`
 
-So, for creating a link to our second page, you will have to accommodate for this extra folder.
+So, for creating a link to my second page, I will have to accommodate for this extra folder.
 
 Within my `home.njk` I've made a simple nav:
 ```html
@@ -267,7 +272,7 @@ Within my `home.njk` I've made a simple nav:
     <a href="pattern-landing/index.html">Patterns</a>
 </div>
 ```
-If you were to copy this nav into the `other.njk` template, neither link will work from within my Pattern Landing Page. Instead, look through the point of view of the `_site/pattern-landing/index.html` since _site is where the publishing happens.
+If I were to copy this nav into the `other.njk` template, neither link will work from within my Pattern Landing Page. Instead, look through the point of view(POV) of the `_site/pattern-landing/index.html`, since _site is where the publishing happens.
 - Since we will have to take a step out of `pattern-landing` folder to access the Home HTML index, the nav for `other.njk` should look like this:
 
 ```html
@@ -276,14 +281,13 @@ If you were to copy this nav into the `other.njk` template, neither link will wo
      <a href="../pattern-landing/index.html">Patterns</a>
 </div>
 ```
-- The reason why I added a step-up for the Pattern Landing Page link is for when `other.njk` is used throughout many pages. It'll save some headache in the future.
+- The reason why I added a step-up for the Pattern Landing Page link is for when `other.njk` is used throughout many other pages. It'll save some headache in the future.
 
 Once you load up localhost, congrats! You have some working links!
 - Now, you can flip through your Home and secondary page!
-- `base.njk`, `home.njk` and `other.njk` are a part of a chaining layout. I like to think of it as a Russian Nesting Doll situation. `base.njk` is the most outer shell. `home.njk` and `other.njk` are equal but within the `base.njk`. Our content in our Markdown files is the innermost shell. When we "build", 11ty takes all the pieces, puts together the Russian Nesting Doll, and outputs HTML pages.
 
 
-### Step #4.2 Making CSS/JS Easier to Link Across All Pages
+### Part #5: Making CSS/JS Easier to Link Across All Pages<a id="step5"></a>
 
 You may have noticed at this point that your CSS isn't being applied to your second page - the one using `other.njk`. This is because your second pages is using the same CSS link as your Home page. Your second page needs a new file path that accommodates the extra step-up to reach your CSS file. 
 
@@ -295,7 +299,7 @@ Your reference link should look like this:
 
 `<link rel="stylesheet" href="{%raw%}{{cssFile}}{%endraw%}">`
 
-Now, open your index.md and your second Markdown page, and insert `cssFile:` and the corresponding file path within the fences.
+Now, open your `index.md` and your second Markdown page, and insert `cssFile:` and the corresponding file path within the fences.
 
 ```
 ---
@@ -313,16 +317,16 @@ cssFile: ../css/styles.css
 ---
 ```
 
-- {%raw%}{{ cssFile }}{%endraw%} is Nunjucks pulling the information you place in your MD files in the fence. This trick is also very helpful when you have multiple CSS files. You can define which CSS file you want to use on whatever page from your MD file using this technique.
+- {%raw%}{{ cssFile }}{%endraw%} is Nunjucks pulling the information you place in the fences. This trick is also very helpful when you have multiple CSS files. You can define which CSS file you want to use on whatever page from your MD file by using this technique.
 
 This trick is also used for other files like JavaScript.
 
 
-### Step #5: Creating a Collection<a id="step5"></a>
+### Part #6: Creating a Collection<a id="step6"></a>
 
-Collections is an 11ty feature that allows you to create a "collection" of pages with a consistent templating layout. Some examples could be a collection of blog posts, articles, tutorials etc. For this how-to, I will be creating a collection of crochet patterns called "patterns".
+Collections is an 11ty feature that allows you to create a "collection" of pages with a consistent templating layout. Some examples could be a collection of blog posts, articles, tutorials etc. For this how-to, I will be creating a collection of crochet patterns called "patterns". What I want is each pattern to have its own page with a consistent layout.
 
-First, I'll move into my `_includes` folder and create a new Nunjuck file template called `pattern.njk`.
+First, I'll go into my `_includes` folder and create a new Nunjuck file template called `pattern.njk`.
 
 Opening this new file, I added this to the top:
 ```
@@ -342,14 +346,13 @@ layout: base.njk
 {%raw%}{{ content | safe }}{%endraw%}
 
 ```
-- H1 saying "Patterns" as well as the nav bar will appear everytime pattern.njk is applied
+**_IMPORTANT:_** I am using `base.njk` instead of `other.njk` because I needed to create a new NAV bar. Once the collection is complete and built, individual Pattern pages will have to jump an extra layer to access other pages. I will show my `_site` folder layout soon to show this.
+- H1 saying "Patterns" as well as the NAV bar will appear every time `pattern.njk` is applied.
 - I also added H2 with Nunjucks {%raw%}{{ title }}{%endraw%} for later use.
 
-**_IMPORTANT_**, take note of the path to other pages in the NAV. Once the collection is complete and built, individual Patterns pages will have to jump an extra layer to access other pages.
+Next, I'll create a folder called "patterns" in my `_src`, then add a couple markdown files called "grannySquare" and "heartPattern" within the new folder.
 
-Next, I'll create a folder called "patterns" in my `_src` then add a couple markdown files called "grannySquare" and "heartPattern".
-
-Still within the patterns folder, create a file called `patterns.json` and add the following code:
+Still within the `patterns` folder, create a file called `patterns.json` and add the following code:
 ```json
 {
   "layout": "pattern.njk",
@@ -363,7 +366,7 @@ Still within the patterns folder, create a file called `patterns.json` and add t
 **_IMPORTANT_** however you name the collection folder is how you will name your `.json` file. i.e. "patterns" folder and "patterns.json."
 
 
-Within each of these new markdown file, I'll add:
+Within each of these new markdown files, I'll add:
 
 ```
 ---
@@ -376,9 +379,91 @@ title: Heart Pattern
 ---
 ```
 
-- Whatever we put into `title: ` will then be placed in place of {%raw%}{{ title }}{%endraw%} in `pattern.njk`
+- Whatever we put into `title:` will then be placed in place of {%raw%}{{ title }}{%endraw%} in `pattern.njk`
 
-Now, go ahead and `npm run build` in the terminal. Within your _site folder,
+Now, go ahead and `npm run build` in the terminal. My repo folder now looks like this:
 
 
-### Step #6: <a id="step6"></a>
+```
+repo /
+|-- _site /
+|   |-- _includes /
+|   |   |-- base.njk
+|   |-- CSS /
+|   |   |-- styles.css
+|   |-- patterns /
+|   |   |-- grannySquare /
+|   |   |   |-- index.html
+|   |   |-- heartPattern /
+|   |   |   |-- index.html
+|   |   |-- grannySquare.md
+|   |   |-- heartPattern.md
+|   |   |-- patterns.json
+|   |-- index.html
+|
+|-- _src /
+|   |-- _includes /
+|   |   |-- base.njk
+|   |-- CSS /
+|   |   |-- styles.css
+|   |-- patterns /
+|   |   |-- grannySquare.md
+|   |   |-- heartPattern.md
+|   |   |-- patterns.json
+|   |-- index.md
+|
+|-- .eleventy.js
+|-- .gitignore
+|-- package.json
+|-- package-lock.json
+```
+Ok.
+
+It's starting to get a little excessive, but this is how it works.
+
+If I wanted to stop and view my new `heartPattern` page right now, I would `npm run build` and `start`, then in my browser I'll enter the localhost filepath: localhost:8081/patterns/heartPattern/index.html
+
+**_IMPORTANT_** the MD files in `_src/patterns` are copied as MD files while _ALSO_ creating a unique folder and `index.html` file in `_site/patterns`. This is **normal**. I do not know why, however. 
+
+### Part #6.5: Linking to Pages within a Collection<a id="step6-5"></a>
+
+Ok, I have a collection of patterns within a `patterns` folder, imma show you a couple of examples on how to link to them within my existing Pattern Landing Page. 
+
+First is the Nunjucks way
+
+Within my `pattern-landing.md` you can use a Nunjucks for loop.
+
+```
+{%raw%}{% for page in collections.patternFold %}
+
+[{{page.data.title}}]({{page.url}})
+
+{% endfor %}{%endraw%}
+```
+
+- between {%raw%}`{% %}`{%endraw%}, for each page in collections.[tag-name within patterns.json]
+
+  -  Use MD link syntax
+  - {%raw%}`{{page.data.title}}`{%endraw%} is Nunjucks that grabs the `title:` information within each unique pattern page.
+  - {%raw%}`{{page.url}}`{%endraw%} grabs the unique URL for the correlating pattern page.
+- {%raw%}`{%endfor%}`{%endraw%} closes the for loop.
+- The "page" variable can be named however you like, "page" is what I like to use.
+- The links will display as inline links.
+- This method is great for simplicity.
+
+<br/>
+<br/>
+
+Next is just straight up HTML within my MD files:
+
+```html
+<a href="../patterns/grannySquare/index.html">
+    Granny Square
+</a>
+<a href="../patterns/heartPattern/index.html">
+    Heart Pattern
+</a>
+```
+- This method is great if you want more control on styling these links.
+- Since HTML overrides Markdown, you can avoid the extra layers of `<p></p>` tags that Markdown applies.
+- This was my preferred method, so I could use text AND images to be links to my patterns.

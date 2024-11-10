@@ -53,6 +53,11 @@ p {
 ul {
     margin: 0;
 }
+span.critique {
+    display: block;
+    width: 70%;
+    margin: 0 auto;
+}
 #nav{
     font-family: "Playfair Display", serif;
     text-decoration: none;
@@ -295,14 +300,14 @@ pre {
     .button {
         display: flex;
     }
-    #nav {
-        flex-direction: column;
-        position: fixed;
-        z-index: 5;
-        top: 0;
-        background-color: rgb(161 161 161 / .5);
-        width: 100%;
-    }
+    /*#nav {*/
+    /*    flex-direction: column;*/
+    /*    position: fixed;*/
+    /*    z-index: 5;*/
+    /*    top: 0;*/
+    /*    background-color: rgb(161 161 161 / .5);*/
+    /*    width: 100%;*/
+    /*}*/
     header {
         margin: 3.5rem 0 0 0 ;
     }
