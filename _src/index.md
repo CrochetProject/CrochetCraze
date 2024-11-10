@@ -2,15 +2,13 @@
 title: Crochet Craze
 layout: home.njk
 templateEngineOverride: njk,md
+cssFile: css/style.css
 ---
 
 
 
 
 ## Welcome
-
-
-
 
 This website is my Senior Project as a Digital Media, Arts and Technology (DIGIT) major with a minor in Writing and Digital Media. This site's subject revolves around a very familiar hobby of Crocheting while also demonstrating skills I've learned and will continue to learn as a Web Developer. The site will be for beginner crocheters who would like to learn basic stitches, patterns and history.
 

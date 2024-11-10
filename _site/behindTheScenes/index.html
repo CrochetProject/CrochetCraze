@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Behind the Scenes</title>
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    </head>
+    <body>
+
+
+
+        
+<div id="nav">
+    <a class="button">☰</a>
+    <a href="../index.html">Home</a>
+    <a href="../stitch-landing/index.html">Stitches</a>
+    <a href="../pattern-landing/index.html">Patterns</a>
+    <a href="../behindTheScenes/index.html">Behind The Scenes</a>
+</div>
+
+<main id="home">
+    <h1>Behind the Scenes <a id="top"></a></h1>
+<h2>Using 11ty and SVGs</h2>
+<p><span class="critique"><em>Is there something incorrect or needs rephrasing?? Go to <a href="https://github.com/CrochetProject/CrochetCraze/issues/1">CrochetCraze GitHub issue</a> and write a comment! Or email me at srr5618@psu.edu</em></span></p>
+<p><a href="../behindTheScenes/index.html#top"><div id="backToTop">⇧</div></a></p>
+<p>11ty is a static site generator using custom templating to depict how your site should be laid out. After the initial set up, you create a template - or web of templates - to lay out a website with multiple pages.</p>
+<p>11ty is able to configure 10 templating languages, and a combination of them, to your desired site layout. For this site I decided to use HTML, Markdown, and Nunjucks. Depending on how the project progresses, I may also use WebC.</p>
+<p>Another huge part of 11ty is its ability to have Collections, i.e. a “collection” of blog posts or a “collection” of recipe pages. For this site, I will be using those collections to organize and lay out my Stitches and Patterns pages.</p>
+<h3><a href="#contents">Contents</a><a id="contents"></a></h3>
+<ul>
+<li><a href="#requirements">Requirements</a></li>
+<li><a href="#step1">Part #1: Download and Configuration</a></li>
+<li><a href="#step2">Part #2: Base Layout, CSS, and 11ty Commands</a></li>
+<li><a href="#step3">Part #3: Publishing to gh-pages</a></li>
+<li><a href="#step4">Part #4: Layout Chaining</a></li>
+<li><a href="#step4-5">Part #4.5: Setting up a Navigation</a></li>
+<li><a href="#step5">Part #5: Making CSS/JS Easier to Link Across All Pages</a></li>
+<li><a href="#step6">Part #6: Creating a Collection</a></li>
+<li><a href="#step6-5">Part #6.5: Linking to Pages within a Collection</a></li>
+</ul>
+<h3>Requirements<a id="requirements"></a></h3>
+<ul>
+<li>A fresh, working GitHub repository that you can easily push content to.</li>
+<li>Basic knowledge in Node.js</li>
+<li>Knowledge in Markdown(MD), HTML and CSS</li>
+<li>For more information on the 11ty setup visit <a href="https://www.11ty.dev/">11ty.dev</a></li>
+<li>For a video tutorial of the 11ty instructions visit this video (*・‿・)ノ <a href="https://www.youtube.com/watch?v=p81J7G1qFAM&amp;list=PLRsQ6aSNe0GDFHNteM1VUSQrTJvIKoMas&amp;index=2">11ty.rocks tutorial</a></li>
+</ul>
+<h3>Part #1: Download and Configuration <a id="step1"></a></h3>
+<p>In your terminal of choice, navigate to your repo and use <code>npm init -y</code> to initialize the project.</p>
+<ul>
+<li>A <code>package.json</code> will appear in your repo directory</li>
+</ul>
+<p>Next, <code>npm install @11ty/eleventy</code> to install 11ty</p>
+<ul>
+<li>A <code>package-lock.json</code> and a folder called <code>node_modules</code> will appear in your root directory.</li>
+</ul>
+<p>Now, open your favorite text or code editor of choice. Open <code>package.json</code> and add the following commands into the “script”:</p>
+<ul>
+<li><code>“start”: “eleventy --serve”,</code></li>
+<li><code>“build”: “eleventy”</code>
+<ul>
+<li>These commands will often be used in the terminal to develop and build your site.</li>
+</ul>
+</li>
+</ul>
+<p>Next, let’s create a <code>.gitignore</code> file in your root directory and insert these lines of code:</p>
+<pre><code class="language-ignorelang">/node_modules
+.idea/
+</code></pre>
+<ul>
+<li><code>.gitignore</code> clears up all the unnecessary files from being pushed to your repo.</li>
+</ul>
+<p>Within your root directory, create another file, name it <code>.eleventy.js</code> and insert the following code:</p>
+<pre><code class="language-js">module.exports = function (eleventyConfig){
+    return{
+        dir: {
+            input: “_src”,
+            output: “_site”
+        },
+      };
+};
+</code></pre>
+<p>The code above is telling 11ty to take everything within your future <code>_src</code> folder, convert a copy, and place it inside of <code>_site</code>.</p>
+<h3>Part #2: Base Layout, CSS, and 11ty Commands <a id="step2"></a></h3>
+<p>Next, create a folder directory called <code>_src</code>. Within the folder <code>_src</code>, create a folder called <code>_includes</code>. Within <code>_includes</code>, create a file called <code>base.njk</code> (the Nunjucks file name can be anything, but base is standard).</p>
+<ul>
+<li>Within <code>base.njk</code> add some basic HTML layout, i.e:</li>
+</ul>
+<pre><code class="language-html">&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+     &lt;meta charset=&quot;UTF-8&quot;&gt;
+     &lt;meta name=&quot;viewport&quot; 
+           content=&quot;width=device-width, 
+           user-scalable=no, 
+           initial-scale=1.0, 
+           maximum-scale=1.0, 
+           minimum-scale=1.0&quot;&gt;
+     &lt;meta http-equiv=&quot;X-UA-Compatible&quot; 
+           content=&quot;ie=edge&quot;&gt;
+     &lt;title&gt;&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    {{ content | safe }}
+    
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<ul>
+<li><code>{{ content | safe }}</code> is Nunjucks placing the rest of the content here. If there is straight HTML in the content you're working with, Nunjucks knows that it's &quot;safe.&quot;</li>
+</ul>
+<p>Next, (inside <code>_src</code>), create the file <code>index.md</code></p>
+<ul>
+<li>At the top of the file, insert this block of code:</li>
+</ul>
+<pre><code>---
+title: Home
+layout: base.njk
+---
+</code></pre>
+<ul>
+<li>The <code>---</code> are called fences.</li>
+<li>The title can be anything you like.</li>
+<li>Everything within this <code>index.md</code> file is considered the &quot;content&quot; that is being pulled in through the Nunjucks in <code>base.njk</code> that was created above.</li>
+<li>Using Markdown, go ahead and add some content to <code>index.md</code>.</li>
+</ul>
+<p>Back inside <code>_src</code>, create a folder called <code>CSS</code> to create a css file you will be using throughout your site within this folder.</p>
+<ul>
+<li>Add some styling while you’re at it, so we can see if the file is configuring correctly later.</li>
+</ul>
+<p>Back inside <code>base.njk</code>, add this reference link to your CSS file.</p>
+<ul>
+<li><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;file/path/to/your/css.css&quot;&gt;</code></li>
+</ul>
+<p>After that, let’s jump back to your <code>.eleventy.js</code> file. If you were to “build” your site right now, 11ty would only be able to recognize your <code>index.md</code> file. To have 11ty recognize your <code>_inlcudes</code>, CSS folders, and their content, add the following code to your <code>.eleventy.js</code>:</p>
+<pre><code class="language-js">    eleventyConfig.addPassthroughCopy(&quot;_src/_includes/&quot;);
+    eleventyConfig.addPassthroughCopy(&quot;./_src/css/&quot;);
+</code></pre>
+<p>Your <code>.eleventy.js</code> file should look like this:</p>
+<pre><code class="language-js">module.exports = function (eleventyConfig){
+     eleventyConfig.addPassthroughCopy(&quot;_src/_includes/&quot;);
+     eleventyConfig.addPassthroughCopy(&quot;./_src/css/&quot;);
+     
+     return{
+         dir: {
+            input: “_src”,
+            output: “_site”
+        },
+    };
+};
+
+</code></pre>
+<p>Now, in a terminal use the command <code>npm run build</code></p>
+<ul>
+<li>The command to “build” is the same command you created in <strong>Part #1</strong></li>
+<li>When this command is used, 11ty will look for your  <code>.eleventy.js</code> file, discover that <code>_src</code> will be the input, and configure what’s inside <code>_src</code>, then output a folder <code>_site</code> with the configured content.</li>
+<li>After the command is completed, you will now see the new <code>_site</code> folder.</li>
+<li>Inside <code>_site</code> is <em>not</em> your initial <code>index.md</code>, but an <code>index.html</code> with your Markdown content configured to HTML.</li>
+<li>Every time you add new content within the <code>_src</code> file and <code>npm run build</code>, your changes will be converted and placed in the existing <code>_site</code>.</li>
+<li>You <em>can</em> add content to the <code>_site</code> folder, but it will be erased if that same content isn’t added to the <code>_src</code> as well.</li>
+<li>The only time I open the <code>_site</code> folder is to make sure files are configuring correctly and to view 11tys filing layout.</li>
+</ul>
+<p><strong><em>IMPORTANT</em></strong></p>
+<ul>
+<li>From here on out, every time you &quot;build,&quot; study the filing system within the <code>_site</code> folder</li>
+<li>However the <code>_site</code> folder is laid out is how you should plan on linking external files.</li>
+<li><strong><code>_site</code> is what will be published to the web.</strong></li>
+</ul>
+<p>The following file layout is roughly what yours should look like at this point:</p>
+<pre><code>repo /
+|-- _site /
+|   |-- _includes /
+|   |   |-- base.njk
+|   |-- CSS /
+|   |   |-- styles.css
+|   |-- index.html
+|
+|-- _src /
+|   |-- _includes /
+|   |   |-- base.njk
+|   |-- CSS /
+|   |   |-- styles.css
+|   |-- index.md
+|
+|-- .eleventy.js
+|-- .gitignore
+|-- package.json
+|-- package-lock.json
+</code></pre>
+<p>To view live changes locally, use the command <code>npm run start</code>(as created in <strong>Part #1</strong>) and click on the localhost link provided in the terminal.</p>
+<ul>
+<li>Congrats! You got some working HTML and CSS!</li>
+<li>To kill the localhost, in the terminal use <code>CTRL/CMD + C</code> then <code>Y</code>.</li>
+</ul>
+<h3>Part #3: Publishing to gh-pages<a id="step3"></a></h3>
+<p>Let's set up your project for publishing, before we get into some crazy stuff.</p>
+<p>First, open up your <code>package.json</code> file, then insert the following command under the &quot;scripts:&quot;</p>
+<ul>
+<li><code>&quot;deploy&quot;: &quot;gh-pages -d _site&quot;</code></li>
+</ul>
+<p>Next, open your terminal, travel to your project directory, and commit your changes remotely. Afterwards, use the command <code>npm run deploy</code>.</p>
+<p>After your terminal loads a bunch of content and says &quot;Published,&quot; open GitHub.com and open your repo. Click the branch dropdown, and you should see a &quot;gh-pages&quot; branch.</p>
+<ul>
+<li>There you can open it, and find the <em>contents</em> of your _site folder.</li>
+</ul>
+<p>Next, click on your repo's Setting/Pages, and under Source, set it to &quot;Deploy from a branch.&quot;</p>
+<p>Under &quot;Branch&quot; set the drop-down to &quot;gh-pages&quot; and &quot;/(root)&quot; and then hit Save.</p>
+<ul>
+<li>Congrats! Your content is now public!</li>
+<li>Your site link is provided at the top of the Pages settings.</li>
+</ul>
+<h3>Part #4: Layout Chaining<a id="step4"></a></h3>
+<p>You could potentially build an entire website by making multiple Markdown files using the <code>base.njk</code> layout, but 11ty has so much more to offer. The biggest feature 11ty offers is layout chaining, which gives you the ability to make a wide variety of templating for different versions of pages.</p>
+<p>For this Crochet Craze, I created a &quot;Home&quot; template and an &quot;Other&quot; template that branches off of the <code>base.njk</code>. That way, only the homepage has a different layout than the rest. Just be aware that all future pages will be within its own named folder containing an <code>index.html</code>. Unfortunately, this will eventually cause some weird linking issues for the future nav bar. We will fix the nav bar in <strong>Part #4.1</strong>.</p>
+<p>So, here's how ya layout chain:</p>
+<p>Inside of <code>_includes</code>, create two <code>.njk</code> files. They can be named anything, but if one is for Home and the second is for everything else. I named them <code>home.njk</code> and <code>other.njk</code>.</p>
+<p>Next, add this code to both <code>home.njk</code> and <code>other.njk</code>:</p>
+<pre><code>---
+layout: base.njk
+---
+</code></pre>
+<p>Now, add some differentiating features between the two layouts that can help distinguish one page from another once published. A good example would be something like headers with different texts.</p>
+<p>Next, move to your <code>index.md</code> file and change the layout from <code>base.njk</code> to <code>home.njk</code>.</p>
+<p>Then, inside of <code>_src</code>, create a new Markdown file and name it however you want. For my example, I named it <code>pattern-landing.md</code>.</p>
+<ul>
+<li>Inside of <code>pattern-landing.md</code> I added:</li>
+</ul>
+<pre><code>---
+title: Pattern Landing
+layout: other.njk
+---
+</code></pre>
+<ul>
+<li>Go ahead and add some content in Markdown too.</li>
+</ul>
+<p>Now, go ahead to your terminal, kill the local server if you're running one(<code>CTRL/CMD + C</code> then <code>Y</code>), and <code>npm run build</code> then <code>npm run start</code> to view your newly built site.</p>
+<p><strong><em>IMPORTANT:</em></strong>
+Even though you are able to view most live edits to your Markdown off of localhost, you <strong><em>must</em></strong> <code>npm run build</code> <strong>after</strong> adding a new file to your project and <strong>before</strong> pushing changes to GitHub.</p>
+<p><code>base.njk</code>, <code>home.njk</code> and <code>other.njk</code> are a part of a chaining layout. I like to think of it as a Russian Nesting Doll situation. <code>base.njk</code> is the most outer shell. <code>home.njk</code> and <code>other.njk</code> are equal but within the <code>base.njk</code>. Our content in the Markdown files is the innermost shell. When we &quot;build&quot;, 11ty takes all the pieces, puts together the Russian Nesting Doll, and outputs HTML pages.</p>
+<h3>Part #4.5: Setting up a Navigation<a id="step4-5"></a></h3>
+<p>Let's view our _site folder real quick.</p>
+<p>Right inside my _site is:</p>
+<pre><code>_site /
+|-- _includes /
+|   |-- base.njk
+|   |-- home.njk
+|   |-- other.njk
+|-- CSS /
+|   |-- styles.css
+|-- pattern-landing /
+|   |-- index.html
+|-- index.html
+</code></pre>
+<ul>
+<li>Yours doesn't have to look exactly like mine with naming schemes, but the general structure should be the same.</li>
+<li>As you can see, my Pattern Landing HTML file is within the folder <code>pattern-landing</code></li>
+</ul>
+<p>So, for creating a link to my second page, I will have to accommodate for this extra folder.</p>
+<p>Within my <code>home.njk</code> I've made a simple nav:</p>
+<pre><code class="language-html">&lt;div id=&quot;nav&quot;&gt;
+    &lt;a href=&quot;index.html&quot;&gt;Home&lt;/a&gt;
+    &lt;a href=&quot;pattern-landing/index.html&quot;&gt;Patterns&lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+<p>If I were to copy this nav into the <code>other.njk</code> template, neither link will work from within my Pattern Landing Page. Instead, look through the point of view(POV) of the <code>_site/pattern-landing/index.html</code>, since _site is where the publishing happens.</p>
+<ul>
+<li>Since we will have to take a step out of <code>pattern-landing</code> folder to access the Home HTML index, the nav for <code>other.njk</code> should look like this:</li>
+</ul>
+<pre><code class="language-html">&lt;div id=&quot;nav&quot;&gt;
+     &lt;a href=&quot;../index.html&quot;&gt;Home&lt;/a&gt;
+     &lt;a href=&quot;../pattern-landing/index.html&quot;&gt;Patterns&lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+<ul>
+<li>The reason why I added a step-up for the Pattern Landing Page link is for when <code>other.njk</code> is used throughout many other pages. It'll save some headache in the future.</li>
+</ul>
+<p>Once you load up localhost, congrats! You have some working links!</p>
+<ul>
+<li>Now, you can flip through your Home and secondary page!</li>
+</ul>
+<h3>Part #5: Making CSS/JS Easier to Link Across All Pages<a id="step5"></a></h3>
+<p>You may have noticed at this point that your CSS isn't being applied to your second page - the one using <code>other.njk</code>. This is because your second pages is using the same CSS link as your Home page. Your second page needs a new file path that accommodates the extra step-up to reach your CSS file.</p>
+<p>Here's how you accommodate for this.</p>
+<p>Open <code>base.njk</code> and find your CSS reference link and replace the entire filepath with {{ cssFile }}.</p>
+<p>Your reference link should look like this:</p>
+<p><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;{{cssFile}}&quot;&gt;</code></p>
+<p>Now, open your <code>index.md</code> and your second Markdown page, and insert <code>cssFile:</code> and the corresponding file path within the fences.</p>
+<pre><code>---
+title: Home
+layout: home.njk
+cssFile: css/styles.css
+---
+</code></pre>
+<pre><code>---
+title: Pattern Landing Page
+layout: other.njk
+cssFile: ../css/styles.css
+---
+</code></pre>
+<ul>
+<li>{{ cssFile }} is Nunjucks pulling the information you place in the fences. This trick is also very helpful when you have multiple CSS files. You can define which CSS file you want to use on whatever page from your MD file by using this technique.</li>
+</ul>
+<p>This trick is also used for other files like JavaScript.</p>
+<h3>Part #6: Creating a Collection<a id="step6"></a></h3>
+<p>Collections is an 11ty feature that allows you to create a &quot;collection&quot; of pages with a consistent templating layout. Some examples could be a collection of blog posts, articles, tutorials etc. For this how-to, I will be creating a collection of crochet patterns called &quot;patterns&quot;. What I want is each pattern to have its own page with a consistent layout.</p>
+<p>First, I'll go into my <code>_includes</code> folder and create a new Nunjuck file template called <code>pattern.njk</code>.</p>
+<p>Opening this new file, I added this to the top:</p>
+<pre><code>---
+layout: base.njk
+---
+
+&lt;div id=&quot;nav&quot;&gt;
+    &lt;a href=&quot;../../index.html&quot;&gt;Home&lt;/a&gt;
+    &lt;a href=&quot;../../pattern-landing/index.html&quot;&gt;Patterns&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;h1&gt;Patterns&lt;/h1&gt;
+
+&lt;h2&gt;{{ title }}&lt;/h2&gt;
+
+{{ content | safe }}
+
+</code></pre>
+<p><strong><em>IMPORTANT:</em></strong> I am using <code>base.njk</code> instead of <code>other.njk</code> because I needed to create a new NAV bar. Once the collection is complete and built, individual Pattern pages will have to jump an extra layer to access other pages. I will show my <code>_site</code> folder layout soon to show this.</p>
+<ul>
+<li>H1 saying &quot;Patterns&quot; as well as the NAV bar will appear every time <code>pattern.njk</code> is applied.</li>
+<li>I also added H2 with Nunjucks {{ title }} for later use.</li>
+</ul>
+<p>Next, I'll create a folder called &quot;patterns&quot; in my <code>_src</code>, then add a couple markdown files called &quot;grannySquare&quot; and &quot;heartPattern&quot; within the new folder.</p>
+<p>Still within the <code>patterns</code> folder, create a file called <code>patterns.json</code> and add the following code:</p>
+<pre><code class="language-json">{
+  &quot;layout&quot;: &quot;pattern.njk&quot;,
+  &quot;tags&quot;: &quot;patternFolder&quot;,
+  &quot;cssFile&quot;: &quot;../../css/style.css&quot;
+}
+</code></pre>
+<ul>
+<li><code>patterns.json</code> dictates what happens to all the files within the folder. Therefore, <code>grannySquare.md</code> and <code>heartPattern.md</code> will use layout <code>pattern.njk</code></li>
+<li><code>patterns.json</code> also labels the folder by tagging it to be &quot;patternFolder.&quot; This tag will be useful soon.</li>
+</ul>
+<p><strong><em>IMPORTANT</em></strong> however you name the collection folder is how you will name your <code>.json</code> file. i.e. &quot;patterns&quot; folder and &quot;patterns.json.&quot;</p>
+<p>Within each of these new markdown files, I'll add:</p>
+<pre><code>---
+title: Granny Square
+---
+</code></pre>
+<pre><code>---
+title: Heart Pattern
+---
+</code></pre>
+<ul>
+<li>Whatever we put into <code>title:</code> will then be placed in place of {{ title }} in <code>pattern.njk</code></li>
+</ul>
+<p>Now, go ahead and <code>npm run build</code> in the terminal. My repo folder now looks like this:</p>
+<pre><code>repo /
+|-- _site /
+|   |-- _includes /
+|   |   |-- base.njk
+|   |-- CSS /
+|   |   |-- styles.css
+|   |-- patterns /
+|   |   |-- grannySquare /
+|   |   |   |-- index.html
+|   |   |-- heartPattern /
+|   |   |   |-- index.html
+|   |   |-- grannySquare.md
+|   |   |-- heartPattern.md
+|   |   |-- patterns.json
+|   |-- index.html
+|
+|-- _src /
+|   |-- _includes /
+|   |   |-- base.njk
+|   |-- CSS /
+|   |   |-- styles.css
+|   |-- patterns /
+|   |   |-- grannySquare.md
+|   |   |-- heartPattern.md
+|   |   |-- patterns.json
+|   |-- index.md
+|
+|-- .eleventy.js
+|-- .gitignore
+|-- package.json
+|-- package-lock.json
+</code></pre>
+<p>Ok.</p>
+<p>It's starting to get a little excessive, but this is how it works.</p>
+<p>If I wanted to stop and view my new <code>heartPattern</code> page right now, I would <code>npm run build</code> and <code>start</code>, then in my browser I'll enter the localhost filepath: localhost:8081/patterns/heartPattern/index.html</p>
+<p><strong><em>IMPORTANT</em></strong> the MD files in <code>_src/patterns</code> are copied as MD files while <em>ALSO</em> creating a unique folder and <code>index.html</code> file in <code>_site/patterns</code>. This is <strong>normal</strong>. I do not know why, however.</p>
+<h3>Part #6.5: Linking to Pages within a Collection<a id="step6-5"></a></h3>
+<p>Ok, I have a collection of patterns within a <code>patterns</code> folder, imma show you a couple of examples on how to link to them within my existing Pattern Landing Page.</p>
+<p>First is the Nunjucks way</p>
+<p>Within my <code>pattern-landing.md</code> you can use a Nunjucks for loop.</p>
+<pre><code>{% for page in collections.patternFold %}
+
+[{{page.data.title}}]({{page.url}})
+
+{% endfor %}
+</code></pre>
+<ul>
+<li>
+<p>between <code>{% %}</code>, for each page in collections.[tag-name within patterns.json]</p>
+<ul>
+<li>Use MD link syntax</li>
+<li><code>{{page.data.title}}</code> is Nunjucks that grabs the <code>title:</code> information within each unique pattern page.</li>
+<li><code>{{page.url}}</code> grabs the unique URL for the correlating pattern page.</li>
+</ul>
+</li>
+<li>
+<p><code>{%endfor%}</code> closes the for loop.</p>
+</li>
+<li>
+<p>The &quot;page&quot; variable can be named however you like, &quot;page&quot; is what I like to use.</p>
+</li>
+<li>
+<p>The links will display as inline links.</p>
+</li>
+<li>
+<p>This method is great for simplicity.</p>
+</li>
+</ul>
+<br/>
+<br/>
+<p>Next is just straight up HTML within my MD files:</p>
+<pre><code class="language-html">&lt;a href=&quot;../patterns/grannySquare/index.html&quot;&gt;
+    Granny Square
+&lt;/a&gt;
+&lt;a href=&quot;../patterns/heartPattern/index.html&quot;&gt;
+    Heart Pattern
+&lt;/a&gt;
+</code></pre>
+<ul>
+<li>This method is great if you want more control on styling these links.</li>
+<li>Since HTML overrides Markdown, you can avoid the extra layers of <code>&lt;p&gt;&lt;/p&gt;</code> tags that Markdown applies.</li>
+<li>This was my preferred method, so I could use text AND images to be links to my patterns.</li>
+</ul>
+
+</main>
+
+
+        <footer>
+            <div id="footCont">
+                <div id="copyright">
+                    <p><a href="https://savannahricks.github.io/CareerPortfolio/" class="footerA">This work</a> by
+                    <a property="cc:attributionName" href="https://github.com/SavannahRicks" class="footerA">Savannah Ricks</a> is licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" class="footerA" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Attribution-NonCommercial-ShareAlike 4.0 International<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt="Creative Commons Licence Image"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt="Creative Commons Licence Image"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt="Creative Commons Licence Image"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" alt="Creative Commons Licence Image"></a>
+                    </p>
+                    <p><script type="text/javascript" src="JS/script.js"></script></p>
+                </div>
+                <div class="links">
+                    <a href="https://github.com/CrochetProject/CrochetCraze" target="_blank" class="linkreg">
+                        GitHub Repo
+                    </a>
+                    <a href="https://github.com/SavannahRicks" target="_blank" class="linkreg">
+                        Savannah's GitHub Profile
+                    </a>
+                    <a href="mailto:srr5618@psu.edu">Email Me!</a>
+                </div>
+            </div>
+        </footer>
+         <script type="text/javascript" src="" defer></script>
+    </body>
+</html>

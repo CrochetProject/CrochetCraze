@@ -1,5 +1,5 @@
 {
-  "layout": "pattern.njk",
-  "tags": "patternfold",
-  "permalink": false
+  "layout": "templates/pattern.njk",
+  "tags": "diagrampatternfold",
+  "cssFile": "../../css/style.css"
 }
