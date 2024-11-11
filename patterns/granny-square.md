@@ -1,3 +1,0 @@
----
-title: Granny Square
----
