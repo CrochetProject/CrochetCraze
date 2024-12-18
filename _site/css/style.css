@@ -335,6 +335,20 @@ pre {
     background-color: #DEE2FF;
 }
 
+@media screen and (min-width: 1750px){
+    header {
+        max-width: 1750px;
+        max-height: 875px;
+        margin: 0 auto;
+    }
+    #yarnBG {
+        max-width: 1770px;
+        max-height: 875px;
+    }
+    #mainH1 {
+        top: 29vh;
+    }
+}
 @media screen and (min-width: 1360px) {
     /*#yarnBG {*/
     /*    height: 40vw;*/
