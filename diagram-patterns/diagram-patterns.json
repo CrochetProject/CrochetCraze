@@ -2,6 +2,7 @@
   "layout": "templates/pattern.njk",
   "tags": "diagrampatternfold",
   "cssFile": "../../css/style.css",
-  "jsFile": "../../JS/SVGscript.js",
+  "jsFile": "../../JS/script.js",
+  "jsSVGFile": "../../JS/SVGscript.js",
   "templateEngineOverride": "njk,md"
 }

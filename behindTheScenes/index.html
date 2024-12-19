@@ -80,7 +80,7 @@
 <li><code>.gitignore</code> clears up all the unnecessary files from being pushed to your repo.</li>
 </ul>
 <p>Within your root directory, create another file, name it <code>.eleventy.js</code> and insert the following code:</p>
-<pre><code class="language-js">module.exports = function (eleventyConfig){
+<pre><code class="language-ruby">module.exports = function (eleventyConfig){
     return{
         dir: {
             input: “_src”,
@@ -308,7 +308,7 @@ cssFile: ../css/styles.css
 ---
 </code></pre>
 <ul>
-<li>{{ cssFile }} is Nunjucks pulling the information you place in the fences. This trick is also very helpful when you have multiple CSS files. You can define which CSS file you want to use on whatever page from your MD file by using this technique.</li>
+<li><code>{{ cssFile }}</code> is Nunjucks pulling the information you place in the fences. This trick is also very helpful when you have multiple CSS files. You can define which CSS file you want to use on whatever page from your MD file by using this technique.</li>
 </ul>
 <p>This trick is also used for other files like JavaScript.</p>
 <h3>Part #6: Creating a Collection<a id="step6"></a></h3>
@@ -334,7 +334,7 @@ layout: base.njk
 <p><strong><em>IMPORTANT:</em></strong> I am using <code>base.njk</code> instead of <code>other.njk</code> because I needed to create a new NAV bar. Once the collection is complete and built, individual Pattern pages will have to jump an extra layer to access other pages. I will show my <code>_site</code> folder layout soon to show this.</p>
 <ul>
 <li>H1 saying &quot;Patterns&quot; as well as the NAV bar will appear every time <code>pattern.njk</code> is applied.</li>
-<li>I also added H2 with Nunjucks {{ title }} for later use.</li>
+<li>I also added H2 with Nunjucks <code>{{ title }}</code> for later use.</li>
 </ul>
 <p>Next, I'll create a folder called &quot;patterns&quot; in my <code>_src</code>, then add a couple markdown files called &quot;grannySquare&quot; and &quot;heartPattern&quot; within the new folder.</p>
 <p>Still within the <code>patterns</code> folder, create a file called <code>patterns.json</code> and add the following code:</p>
@@ -359,7 +359,7 @@ title: Heart Pattern
 ---
 </code></pre>
 <ul>
-<li>Whatever we put into <code>title:</code> will then be placed in place of {{ title }} in <code>pattern.njk</code></li>
+<li>Whatever we put into <code>title:</code> will then be placed in place of <code>{{ title }}</code> in <code>pattern.njk</code></li>
 </ul>
 <p>Now, go ahead and <code>npm run build</code> in the terminal. My repo folder now looks like this:</p>
 <pre><code>repo /
@@ -469,5 +469,6 @@ title: Heart Pattern
             </div>
         </footer>
          <script type="text/javascript" src="../JS/script.js" defer></script>
+         <script type="text/javascript" src="" defer></script>
     </body>
 </html>
