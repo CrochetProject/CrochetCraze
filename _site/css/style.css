@@ -220,6 +220,7 @@ pre {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-items: flex-end;
 }
 
 .imgSpaceGroup{
@@ -243,10 +244,13 @@ pre {
     width: 100%;
 }
 .pinkImageFiller {
-    background-color: grey;
     width: 100%;
     height: auto;
     aspect-ratio: 1;
+}
+.pinkImageFiller img {
+    max-height: 100%;
+    max-width: 100%;
 }
 
 .pinkOverlay {
@@ -361,6 +365,9 @@ pre {
 @media screen and (max-width: 880px) {
     #mainH1{
         font-size: 4rem;
+    }
+    .imgSpaceGroup{
+        width: 40%;
     }
 
 }
