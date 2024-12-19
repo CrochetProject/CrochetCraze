@@ -3,5 +3,6 @@
   "tags": "diagrampatternfold",
   "cssFile": "../../css/style.css",
   "jsFile": "../../JS/script.js",
+  "jsSVGFile": "../../JS/SVGscript.js",
   "templateEngineOverride": "njk,md"
 }

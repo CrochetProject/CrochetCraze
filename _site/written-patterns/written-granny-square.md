@@ -4,12 +4,6 @@ title: Written Granny Square
 
 ## Granny Square Pattern
 
-<div class="tab">
-
-[Diagram Pattern](../../diagram-patterns/diagram-granny-square/index.html)
-[Written Pattern](#granny-square-pattern)
-
-</div>
 
 Starting the Granny Square:
 - <span class="chain">Chain</span> 4 and join to form a loop. 

@@ -63,7 +63,8 @@ Next, let’s create a `.gitignore` file in your root directory and insert these
 - `.gitignore` clears up all the unnecessary files from being pushed to your repo.
 
 Within your root directory, create another file, name it `.eleventy.js` and insert the following code:
-```js
+
+```ruby
 module.exports = function (eleventyConfig){
     return{
         dir: {
@@ -73,6 +74,9 @@ module.exports = function (eleventyConfig){
       };
 };
 ```
+
+
+
 The code above is telling 11ty to take everything within your future `_src` folder, convert a copy, and place it inside of `_site`.
 
 ### Part #2: Base Layout, CSS, and 11ty Commands <a id="step2"></a>
@@ -317,7 +321,7 @@ cssFile: ../css/styles.css
 ---
 ```
 
-- {%raw%}{{ cssFile }}{%endraw%} is Nunjucks pulling the information you place in the fences. This trick is also very helpful when you have multiple CSS files. You can define which CSS file you want to use on whatever page from your MD file by using this technique.
+- `{%raw%}{{ cssFile }}{%endraw%}` is Nunjucks pulling the information you place in the fences. This trick is also very helpful when you have multiple CSS files. You can define which CSS file you want to use on whatever page from your MD file by using this technique.
 
 This trick is also used for other files like JavaScript.
 
@@ -348,7 +352,7 @@ layout: base.njk
 ```
 **_IMPORTANT:_** I am using `base.njk` instead of `other.njk` because I needed to create a new NAV bar. Once the collection is complete and built, individual Pattern pages will have to jump an extra layer to access other pages. I will show my `_site` folder layout soon to show this.
 - H1 saying "Patterns" as well as the NAV bar will appear every time `pattern.njk` is applied.
-- I also added H2 with Nunjucks {%raw%}{{ title }}{%endraw%} for later use.
+- I also added H2 with Nunjucks `{%raw%}{{ title }}{%endraw%}` for later use.
 
 Next, I'll create a folder called "patterns" in my `_src`, then add a couple markdown files called "grannySquare" and "heartPattern" within the new folder.
 
@@ -379,7 +383,7 @@ title: Heart Pattern
 ---
 ```
 
-- Whatever we put into `title:` will then be placed in place of {%raw%}{{ title }}{%endraw%} in `pattern.njk`
+- Whatever we put into `title:` will then be placed in place of `{%raw%}{{ title }}{%endraw%}` in `pattern.njk`
 
 Now, go ahead and `npm run build` in the terminal. My repo folder now looks like this:
 

@@ -121,7 +121,7 @@ span.critique {
         align-items: center;
         justify-content: flex-start;
         transition: all ease 0.5s;
-        background: rgba(230, 204, 255, 0.5);
+        background: rgba(222, 226, 255, 0.95);
     }
     #navCont.responsive > *:not(:last-child){
         display: block;
@@ -208,6 +208,7 @@ pre {
     margin: 1rem 0 0 0;
     width: 100%;
     background-color: #d0c9cb;
+    overflow-x: scroll;
     & code {
         background-color: #d0c9cb;
     }
