@@ -121,7 +121,7 @@ span.critique {
         align-items: center;
         justify-content: flex-start;
         transition: all ease 0.5s;
-        background: rgba(230, 204, 255, 0.5);
+        background: rgba(222, 226, 255, 0.95);
     }
     #navCont.responsive > *:not(:last-child){
         display: block;
@@ -208,6 +208,7 @@ pre {
     margin: 1rem 0 0 0;
     width: 100%;
     background-color: #d0c9cb;
+    overflow-x: scroll;
     & code {
         background-color: #d0c9cb;
     }
@@ -335,6 +336,20 @@ pre {
     background-color: #DEE2FF;
 }
 
+@media screen and (min-width: 1750px){
+    header {
+        max-width: 1750px;
+        max-height: 875px;
+        margin: 0 auto;
+    }
+    #yarnBG {
+        max-width: 1770px;
+        max-height: 875px;
+    }
+    #mainH1 {
+        top: 29vh;
+    }
+}
 @media screen and (min-width: 1360px) {
     /*#yarnBG {*/
     /*    height: 40vw;*/
