@@ -1,6 +1,0 @@
-{
-  "layout": "templates/pattern.njk",
-  "tags": "writtenpatternfold",
-  "cssFile": "../../css/style.css",
-  "jsFile": "../../JS/SVGscript.js"
-}
