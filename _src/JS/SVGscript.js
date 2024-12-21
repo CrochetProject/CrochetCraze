@@ -58,7 +58,11 @@ function stitchHighlight(){
                 divSlipSt.style.left = `${e.clientX + width/2}px`;
                 divSlipSt.style.top = `${e.clientY - height}px`;
             }, 0);
-        }else{}
+        }else{
+            divDBST.style.left = `25vw`;
+            divCH.style.left = `25vw`;
+            divSlipSt.style.left = `25vw`;
+        }
     });
 }
 function stitchMouseOut(){
