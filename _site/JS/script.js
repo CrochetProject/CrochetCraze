@@ -19,16 +19,16 @@ function Menubar() {
 }
 document.addEventListener("DOMContentLoaded", function () {
 
-    let footer = document.getElementsByTagName("footer");
-    let body = document.getElementsByTagName("body");
-    var bodyHeight = body.style.height;
-    console.log(bodyHeight);
-    var windowHeight = window.innerHeight;
-    console.log(windowHeight);
-
-    if (bodyHeight > windowHeight) {
-        footer.style.bottom = `0`;
-    }else {}
+    // let footer = document.getElementsByTagName("footer");
+    // let body = document.getElementsByTagName("body");
+    // var bodyHeight = body.style.height;
+    // console.log(bodyHeight);
+    // var windowHeight = window.innerHeight;
+    // console.log(windowHeight);
+    //
+    // if (bodyHeight > windowHeight) {
+    //     footer.style.bottom = `0`;
+    // }else {}
 
 
     const isHoverableDevice = window.matchMedia('(hover: hover) and (pointer: fine)');

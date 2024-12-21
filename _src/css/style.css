@@ -183,7 +183,7 @@ svg{
 }
 
 footer {
-    position: absolute;
+    /*position: absolute;*/
     margin: 2rem 0 0 0;
     padding: 1rem 2rem;
     background-color: #E9E9E9;
