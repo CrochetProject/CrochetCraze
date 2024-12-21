@@ -161,7 +161,8 @@ main {
     margin: 0 auto;
 }
 #mainH1{
-    /*width: 25%;*/
+    display: flex;
+    flex-direction: column;
     position: absolute;
     top: 23.5vw;
     font-size: 5rem;
@@ -171,11 +172,18 @@ main {
     justify-self: center;
     margin: 0;
 }
+#name {
+    position: absolute;
+    align-self: center;
+    top: 40vw;
+    font-style: italic;
+}
 svg{
     max-height: 90vh;
 }
 
 footer {
+    position: absolute;
     margin: 2rem 0 0 0;
     padding: 1rem 2rem;
     background-color: #E9E9E9;
@@ -267,10 +275,15 @@ pre {
     opacity: .5;
 }
 
-.tab p{
-    margin: 1.5rem 0rem;
+div .tab {
     display: flex;
     flex-direction: row;
+}
+.tab{
+    margin: 1.5rem 0 0 0 ;
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
 }
 .tab a{
     /*margin: 1rem 1rem;*/
@@ -301,13 +314,13 @@ pre {
 #divDBST.display, #divCH.display, #divSlipSt.display {
     opacity: 1;
 }
-.chain, .textDBCrochet, .slipSt{
+.chain, .doubleStitch, .slipSt{
     transition: ease .5s;
 }
 .chain:hover {
     background-color: #CBC0D3;
 }
-.textDBCrochet:hover {
+.doubleStitch:hover {
     background-color: #a2acf2;
 }
 .slipSt:hover {
@@ -362,6 +375,16 @@ pre {
     /*    y:-15%;*/
     /*}*/
 }
+@media screen and (max-width: 1170px) {
+    #name {
+        top: 43vw;
+    }
+}
+@media screen and (max-width: 995px) {
+    #name {
+        top: 45vw;
+    }
+}
 @media screen and (max-width: 880px) {
     #mainH1{
         font-size: 4rem;
@@ -369,7 +392,15 @@ pre {
     .imgSpaceGroup{
         width: 40%;
     }
+    #name {
+        top: 47vw;
+    }
 
+}
+@media screen and (max-width: 755px) {
+    #name {
+        top: 50vw;
+    }
 }
 @media screen and (max-width: 700px) {
     header{
@@ -379,6 +410,9 @@ pre {
         top: 16vw;
         font-size: 3rem;
         line-height: 3rem;
+    }
+    #name {
+        top: 35vw;
     }
     h2 {
         font-size: 1.5rem;
@@ -391,6 +425,11 @@ pre {
     }
     .button {
         display: flex;
+    }
+}
+@media screen and (max-width: 640px) {
+    #name {
+        top: 38vw;
     }
 }
 @media screen and (max-width: 530px) {
@@ -411,7 +450,7 @@ pre {
 }
 @media screen and (max-width: 420px) {
     #mainH1{
-        top: 19vw;
+        top: 18vw;
         font-size: 2rem;
         line-height: 1.7rem;
     }

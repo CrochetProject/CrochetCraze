@@ -1,4 +1,4 @@
-
+console.log("hello");
 function lastModified()
 {
     let modiDate=new Date(document.lastModified);
@@ -9,10 +9,6 @@ document.write ("Last updated on ")
 document.write (lastModified() );
 document.write ("");
 
-//works ^^^
-
-
-
 function Menubar() {
     var x = document.getElementById("navCont");
     if (x.classList.contains("scrolled")) {
@@ -21,9 +17,20 @@ function Menubar() {
         x.classList.toggle("responsive");
     }
 }
-
-
 document.addEventListener("DOMContentLoaded", function () {
+
+    let footer = document.getElementsByTagName("footer");
+    let body = document.getElementsByTagName("body");
+    var bodyHeight = body.style.height;
+    console.log(bodyHeight);
+    var windowHeight = window.innerHeight;
+    console.log(windowHeight);
+
+    if (bodyHeight > windowHeight) {
+        footer.style.bottom = `0`;
+    }else {}
+
+
     const isHoverableDevice = window.matchMedia('(hover: hover) and (pointer: fine)');
     console.log(isHoverableDevice);
     let scrollTimeout;
@@ -59,10 +66,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         });
     }
-
-    let mybutton = document.getElementById("navCont");
-
-
     $('a[href^="#"]').on("click", function (e) {
         e.preventDefault();
         var target = $(this.hash);

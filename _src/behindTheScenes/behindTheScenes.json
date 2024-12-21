@@ -1,0 +1,7 @@
+{
+  "layout": "collections.njk",
+  "tags": "behindTheScenesFold",
+  "cssFile": "../../css/style.css",
+  "jsFile": "../../JS/script.js",
+  "templateEngineOverride": "njk,md"
+}
